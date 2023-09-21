@@ -1,82 +1,41 @@
-import { useState } from "react";
+import { Flex, Icon, Image, Link, useMediaQuery } from "@chakra-ui/react";
 import Wrapper from "@/components/elements/Wrapper";
-import NavList from "@/components/elements/nav-list";
-import { Box, Button, Image, Link } from "@chakra-ui/react";
-
-const NAV_MENU_DATA = [
-  {
-    id: "tinh-nang",
-    title: "Tính năng",
-  },
-  {
-    id: "mo-hinh",
-    title: "Mô hình",
-  },
-  {
-    id: "doi-tuong-su-dung",
-    title: "Đối tượng sử dụng",
-  },
-  {
-    id: "phi-dich-vu",
-    title: "Phí dịch vụ",
-  },
-  {
-    id: "dai-ly",
-    title: "Đại lý",
-  },
-];
+import CustomButton from "@/components/elements/button";
+import NavMenu from "./NavMenu";
+import { RxHamburgerMenu } from "react-icons/rx";
 
 const NavBar = () => {
-  const [selectedNavItemID, setSelectedNavItemID] = useState<string>("");
-  const handleMoveToSection = (id: string) => {
-    setSelectedNavItemID(id);
-  };
+  const [isSmallerThan995, isLargerThan995, isSmallerThan1200] = useMediaQuery([
+    "(max-width: 995px)",
+    "(min-width: 995px)",
+    "(max-width: 1200px)",
+  ]);
 
   return (
-    <Wrapper py={2} justifyContent={"space-between"} alignItems={"center"}>
+    <Wrapper
+      py={2}
+      px={isSmallerThan995 ? "10px" : 0}
+      m={isSmallerThan995 ? "0" : "0 auto"}
+      justifyContent={"space-between"}
+      flexDir={isSmallerThan1200 && isLargerThan995 ? "column" : "row"}
+      alignItems={"center"}
+    >
+      {/* logo */}
       <Link href="" display={"block"}>
         <Image src={"/assets/imgs/logo-n.png"} />
       </Link>
-
-      <NavList
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        gap={3}
+      {/* nav menu list */}
+      <Flex
+        display={isSmallerThan995 ? "none" : "block"}
+        justifyContent={"space-between"}
       >
-        {NAV_MENU_DATA.map((item) => (
-          <Box
-            key={item.id}
-            as="li"
-            listStyleType={"none"}
-            p={"10px 15px"}
-            borderBottom={
-              item.id === selectedNavItemID ? "3px solid #EA0D34" : "none"
-            }
-            _hover={{
-              borderBottom: "3px solid #EA0D34",
-            }}
-          >
-            <Box
-              as={"a"}
-              display={"inline-block"}
-              _hover={{
-                color: "second",
-              }}
-              fontWeight={"600"}
-              borderColor={selectedNavItemID === item.id ? "second" : "none"}
-              color={selectedNavItemID === item.id ? "second" : "primary"}
-              cursor={"pointer"}
-              fontSize={"16px"}
-              onClick={() => handleMoveToSection(item.id)}
-            >
-              {item.title}
-            </Box>
-          </Box>
-        ))}
-      </NavList>
-
-      <Button>Đăng nhập</Button>
+        <NavMenu />
+        <CustomButton ml={"60px"} p={"12px 14px"} w={"150px"}>
+          Đăng nhập
+        </CustomButton>
+      </Flex>
+      {/* button to toggle for responsive menu mobile */}
+      {isSmallerThan995 && <Icon as={RxHamburgerMenu} boxSize={8} />}
     </Wrapper>
   );
 };

@@ -5,7 +5,7 @@ import {
   Image,
   Link,
   Text,
-  UnorderedList,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import { IoMdMail } from "react-icons/io";
 import { FaPhoneVolume } from "react-icons/fa6";
@@ -14,8 +14,13 @@ import Wrapper from "@/components/elements/Wrapper";
 import NavList from "@/components/elements/nav-list";
 
 const HeaderTop = () => {
+  const [isLargerThan995] = useMediaQuery("(min-width: 995px)");
   return (
-    <Box bg={"white"} borderBottom={"1px solid #ccc"}>
+    <Box
+      bg={"white"}
+      display={isLargerThan995 ? "block" : "none"}
+      borderBottom={"1px solid #ccc"}
+    >
       <Wrapper justifyContent={"space-between"} py={1}>
         <Flex>
           <Link
