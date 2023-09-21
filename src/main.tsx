@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { render } from "react-dom"; // Import the render function
 
 import "./index.css";
 import { ChakraProvider } from "@chakra-ui/react";
@@ -7,10 +7,12 @@ import theme from "./theme/index.ts";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+// Use render instead of createRoot
+render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
       <RouterProvider router={router} />
     </ChakraProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
