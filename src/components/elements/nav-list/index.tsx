@@ -6,7 +6,9 @@ type NavListProps = PropsWithChildren<ChakraProps>;
 const NavList = ({ children, ...ChakraProps }: NavListProps) => {
   return (
     <Nav>
-      <UnorderedList {...ChakraProps}>{children}</UnorderedList>
+      <UnorderedList ml={0} {...ChakraProps}>
+        {children}
+      </UnorderedList>
     </Nav>
   );
 };

@@ -10,5 +10,11 @@ export const styles = {
       fontSize: "14px",
       marginRight: "30px",
     },
+    ".heading-title-text": {
+      fontFamily: "Magistral, sans-serif",
+    },
+    ul: {
+      marginLeft: 0,
+    },
   },
 };

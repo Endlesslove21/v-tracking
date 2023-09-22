@@ -1,11 +1,11 @@
 import Wrapper from "@/components/elements/Wrapper";
-import { Box } from "@chakra-ui/react";
+import Slider from "@/components/main/section-slider/Slider";
 
 const Home = () => {
   return (
-    <Wrapper justifyContent={"center"} pt={"70px"} as="main">
-      Home
-    </Wrapper>
+    <main>
+      <Slider />
+    </main>
   );
 };
 

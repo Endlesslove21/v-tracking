@@ -1,13 +1,11 @@
 import { useState } from "react";
 import NavList from "@/components/elements/nav-list";
 import { NAV_MENU_DATA } from "@/components/configs/NAV_MENU_DATA";
-import { Box } from "@chakra-ui/react";
+import { Box, useMediaQuery } from "@chakra-ui/react";
 
-type Props = {};
-
-const NavMenu = (props: Props) => {
+const NavMenu = () => {
   const [selectedNavItemID, setSelectedNavItemID] = useState<string>("");
-
+  const [isSmallerThan995] = useMediaQuery("(max-width: 995px)");
   const handleMoveToSection = (id: string) => {
     setSelectedNavItemID(id);
   };
@@ -15,9 +13,10 @@ const NavMenu = (props: Props) => {
   return (
     <NavList
       display={"flex"}
+      flexDir={isSmallerThan995 ? "column" : "row"}
       justifyContent={"center"}
       alignItems={"center"}
-      gap={3}
+      gap={isSmallerThan995 ? 6 : 3}
     >
       {NAV_MENU_DATA.map((item) => (
         <Box

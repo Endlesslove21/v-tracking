@@ -4,3 +4,10 @@
   font-family: "Sarabun", sans-serif;
   box-sizing: border-box;
 }
+
+@font-face {
+  font-family: "Magistral";
+  src: url("/assets/fonts/Magistral/FS\ Magistral-Book.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
