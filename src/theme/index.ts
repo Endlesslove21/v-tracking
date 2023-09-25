@@ -1,6 +1,7 @@
 import { colors } from "./foundations/colors";
 import { breakpoints } from "@/theme/foundations/breakpoints";
-
+import { Button } from "./components/button";
+import { Input } from "./components/input";
 // theme/index.js
 import { extendTheme } from "@chakra-ui/react";
 
@@ -20,6 +21,8 @@ const overrides = {
         display: "inline-block",
       },
     },
+    Button,
+    Input,
   },
 };
 

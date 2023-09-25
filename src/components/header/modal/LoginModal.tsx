@@ -26,9 +26,7 @@ const LoginModal = ({ isOpen, onClose }: Props) => {
 
       <ModalContent borderRadius={"10px"} p={0}>
         <ModalHeader>
-          <Heading mt={5} as={"h2"} fontWeight={"700"} fontSize={"32px"}>
-            Đăng nhập
-          </Heading>
+          <Heading className="modal-heading-text">Đăng nhập</Heading>
         </ModalHeader>
 
         <ModalCloseButton color={"#333"} _hover={{ color: "primary" }} />

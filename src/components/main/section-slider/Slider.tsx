@@ -1,10 +1,22 @@
-import { useState } from "react";
 import Wrapper from "@/components/elements/Wrapper";
 import CustomButton from "@/components/elements/button";
 import HeadingTitle from "@/components/elements/heading";
-import { Box, Flex, Image, Link, Text } from "@chakra-ui/react";
+import RegisterModal from "@/components/header/modal/RegisterModal";
+import VideoModal from "@/components/header/modal/VideoModal";
+import { Box, Flex, Image, Link, Text, useDisclosure } from "@chakra-ui/react";
 
 const Slider = () => {
+  const {
+    isOpen: isVideoModalOpen,
+    onClose: onCloseVideoModalOpen,
+    onOpen: onOpenVideoModal,
+  } = useDisclosure();
+  const {
+    isOpen: isRegisterModalOpen,
+    onClose: onCloseRegisterModal,
+    onOpen: onOpenRegisterModal,
+  } = useDisclosure();
+
   return (
     <Box
       bg={"url(/assets/imgs/banner-n.png) no-repeat center top"}
@@ -20,31 +32,62 @@ const Slider = () => {
             giám sát hành trình và quản lý những chiếc xe của bạn
           </Text>
 
-          <CustomButton w={"60%"} py={2} mb={"20px"}>
+          <CustomButton
+            onClick={onOpenRegisterModal}
+            w={"60%"}
+            py={2}
+            mb={"20px"}
+          >
             Đăng ký nhận tư vấn miễn phí
           </CustomButton>
-          <Flex cursor={"pointer"} mt={7} mb={3}>
-            <Image w={"24px"} height={"24px"} src="/assets/imgs/play-n.png" />
-            <Text as={"span"} display={"inline-block"} ml={1}>
-              Video Sản Phẩm
-            </Text>
+          <Flex>
+            <Box
+              onClick={onOpenVideoModal}
+              mt={7}
+              mb={3}
+              display={"flex"}
+              cursor={"pointer"}
+            >
+              <Image
+                display={"inline-block"}
+                w={"24px"}
+                height={"24px"}
+                src="/assets/imgs/play-n.png"
+              />
+              <Text
+                alignItems={"center"}
+                as={"span"}
+                display={"inline-block"}
+                ml={1}
+              >
+                Video Sản Phẩm
+              </Text>
+            </Box>
           </Flex>
           <Link
-            display={"flex"}
             target="_blank"
             href="https://viettel.vn/chi-tiet-video/QXJ0aWNs160210389e288e?catId=QXJ0aWNs15982a50944b96"
           >
-            <Image
-              w={"24px"}
-              height={"24px"}
-              src="/assets/imgs/thongtin-n.png"
-            />
-            <Text as={"span"} display={"inline-block"} ml={1}>
-              Giới thiệu dịch vụ V-Tracking
-            </Text>
+            <Box display={"flex"}>
+              <Image
+                display={"inline-block"}
+                w={"24px"}
+                height={"24px"}
+                src="/assets/imgs/thongtin-n.png"
+              />
+              <Text as={"span"} display={"inline-block"} ml={1}>
+                Giới thiệu dịch vụ V-Tracking
+              </Text>
+            </Box>
           </Link>
         </Box>
       </Wrapper>
+      {/* introducing v-tracking video modal */}
+      <VideoModal isOpen={isVideoModalOpen} onClose={onCloseVideoModalOpen} />
+      <RegisterModal
+        isOpen={isRegisterModalOpen}
+        onClose={onCloseRegisterModal}
+      />
     </Box>
   );
 };

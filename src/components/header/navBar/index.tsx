@@ -11,7 +11,7 @@ import CustomButton from "@/components/elements/button";
 import NavMenu from "./NavMenu";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
-import LoginModal from "../login/LoginModal";
+import LoginModal from "../modal/LoginModal";
 import MobileNavMenu from "./MobileNavMenu";
 
 const NavBar = () => {

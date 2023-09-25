@@ -13,6 +13,15 @@ export const styles = {
     ".heading-title-text": {
       fontFamily: "Magistral, sans-serif",
     },
+    ".modal-heading-text": {
+      marginTop: "10px",
+      fontWeight: "700",
+      fontSize: "24px",
+    },
+    ".register-label-text": {
+      fontWeight: "400",
+      fontSize: "14px",
+    },
     ul: {
       marginLeft: 0,
     },
