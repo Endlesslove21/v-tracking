@@ -13,6 +13,7 @@ const HeadingTitle = ({ title, ...BoxProps }: Props) => {
       fontFamily={"Magistral"}
       letterSpacing={"1px"}
       lineHeight={"1.7"}
+      textTransform={"uppercase"}
       w={"100%"}
       textAlign={"center"}
       {...BoxProps}
