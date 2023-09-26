@@ -10,21 +10,21 @@ export const Button = defineStyleConfig({
   // Two sizes: sm and md
   sizes: {
     sm: {
-      fontSize: "sm",
-      px: 4, // <-- px is short for paddingLeft and paddingRight
-      py: 3, // <-- py is short for paddingTop and paddingBottom
+      fontSize: "14px",
+      px: "10px", // <-- px is short for paddingLeft and paddingRight
+      py: "5px", // <-- py is short for paddingTop and paddingBottom
     },
     md: {
       fontSize: "md",
-      px: 6, // <-- these values are tokens from the design system
-      py: 4, // <-- these values are tokens from the design system
+      px: "20px", // <-- these values are tokens from the design system
+      py: "20px", // <-- these values are tokens from the design system
     },
   },
   // Two variants: outline and solid
   variants: {
     outline: {
-      border: "2px solid",
-      borderColor: "purple.500",
+      border: "1px solid",
+      borderColor: "#ccc",
       color: "purple.500",
     },
     solid: {

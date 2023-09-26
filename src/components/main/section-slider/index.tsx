@@ -25,8 +25,16 @@ const Slider = () => {
       height={"830px"}
     >
       <Wrapper flexDir={"column"}>
-        <Box w={"50%"} pl={"10px"} pr={"150px"}>
-          <HeadingTitle title="HỆ THỐNG QUẢN LÝ VÀ GIÁM SÁT PHƯƠNG TIỆN VẬN TẢI V-TRACKING" />
+        <Box
+          w={{ base: "90%", md: "70%", xl: "50%" }}
+          pl={{ xl: "10px" }}
+          pr={{ xl: "150px" }}
+          mx={{ base: 3, xl: 0 }}
+        >
+          <HeadingTitle
+            sx={{ textAlign: "left" }}
+            title="HỆ THỐNG QUẢN LÝ VÀ GIÁM SÁT PHƯƠNG TIỆN VẬN TẢI V-TRACKING"
+          />
           <Text mt={"20px"} mb={"30px"} pr={"50px"}>
             Chỉ cần truy cập hệ thống từ các thiết bị có kết nối internet để
             giám sát hành trình và quản lý những chiếc xe của bạn
@@ -34,7 +42,7 @@ const Slider = () => {
 
           <CustomButton
             onClick={onOpenRegisterModal}
-            w={"60%"}
+            w={{ base: "70%", lg: "60%" }}
             py={2}
             mb={"20px"}
           >
