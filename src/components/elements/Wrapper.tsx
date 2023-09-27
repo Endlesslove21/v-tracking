@@ -6,7 +6,7 @@ const Wrapper = ({ children, ...BoxProps }: Props) => {
     <Flex
       m={"0 auto"}
       w={"100%"}
-      maxW={{ lg: "970px", xl: "1170px" }}
+      maxW={{ lg: "970px", xl: "1170px", md: "750px" }}
       {...BoxProps}
     >
       {children}
