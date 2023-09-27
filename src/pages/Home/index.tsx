@@ -1,3 +1,4 @@
+import Agents from "@/components/main/section-agents";
 import Features from "@/components/main/section-features";
 import Models from "@/components/main/section-model";
 import OurCustomers from "@/components/main/section-ourCustomers";
@@ -14,6 +15,7 @@ const Home = () => {
       <TargetUsers />
       <ServiceCharges />
       <OurCustomers />
+      <Agents />
     </main>
   );
 };
