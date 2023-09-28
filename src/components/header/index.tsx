@@ -1,9 +1,12 @@
 import ContactInfor from "@/components/header/headerTop";
 import NavBar from "@/components/header/navBar";
+import { SectionContext } from "@/context/ScrollSectionContext";
 import { Box, useMediaQuery } from "@chakra-ui/react";
+import { useRef, useEffect, useContext } from "react";
 
 const Header = () => {
   const [isSmallerThan995] = useMediaQuery("(max-width: 995px)");
+
   return (
     <Box
       as="header"

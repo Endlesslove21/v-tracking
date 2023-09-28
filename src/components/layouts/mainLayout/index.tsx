@@ -7,9 +7,9 @@ type Props = React.PropsWithChildren<{}>;
 
 const MainLayout = ({ children }: Props) => {
   const [sectionId, setSectionId] = useState<string>("");
+
   const value = { sectionId, setSectionId };
 
-  console.log(sectionId);
   return (
     <>
       <SectionContext.Provider value={value}>

@@ -10,7 +10,7 @@ import { useContext, useEffect } from "react";
 
 const Home = () => {
   const { sectionId } = useContext(SectionContext);
-
+  const { headerHeight } = useContext(SectionContext);
   useEffect(() => {
     const handleClickScroll = async (id: string) => {
       const element = document.getElementById(id);
@@ -18,7 +18,10 @@ const Home = () => {
         // Wait for the next frame
         await new Promise((resolve) => requestAnimationFrame(resolve));
         // Scroll smoothly to the top of the next section
-        element.scrollIntoView({ behavior: "smooth" });
+        window.scrollTo({
+          top: element.offsetTop - 90,
+          behavior: "smooth",
+        });
       }
     };
     handleClickScroll(sectionId);
