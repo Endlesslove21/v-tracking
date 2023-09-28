@@ -4,7 +4,6 @@ import {
   Heading,
   Icon,
   Image,
-  Stack,
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
@@ -21,8 +20,8 @@ const FooterBottom = () => {
   return (
     <Box mt="80px" mb="50px">
       <Wrapper px={"15px"} flexDir={"column"}>
-        <Flex mx={"-15px"}>
-          <Box w={"75%"}>
+        <Flex mx={{ lg: "-15px" }} flexDir={{ base: "column", lg: "row" }}>
+          <Box w={{ base: "100%", lg: "75%" }}>
             <Heading fontSize={"16px"} as={"h3"} lineHeight={"24px"}>
               TỔNG CÔNG TY VIỄN THÔNG VIETTEL
               <br /> CHI NHÁNH TẬP ĐOÀN CÔNG NGHIỆP - VIỄN THÔNG QUÂN ĐỘI
@@ -51,19 +50,25 @@ const FooterBottom = () => {
             </NavList>
           </Box>
 
-          <Box float={"right"} w={"25%"} px={"15px"}>
-            <CustomButton
-              _hover={{
-                background:
-                  "linear-gradient(270deg, #FF575D 0%, #D72F2F 100% )",
-              }}
-              py={2}
-              w={"50%"}
-              onClick={onOpen}
-            >
-              Gửi liên hệ
-            </CustomButton>
-          </Box>
+          <Flex
+            justifyContent={{ base: "center", lg: "flex-end" }}
+            w={{ base: "100%", lg: "25%" }}
+            px={"15px"}
+          >
+            <Box w={"100%"}>
+              <CustomButton
+                _hover={{
+                  background:
+                    "linear-gradient(270deg, #FF575D 0%, #D72F2F 100% )",
+                }}
+                py={2}
+                w={"50%"}
+                onClick={onOpen}
+              >
+                Gửi liên hệ
+              </CustomButton>
+            </Box>
+          </Flex>
         </Flex>
       </Wrapper>
       <RegisterModal isOpen={isOpen} onClose={onClose} />

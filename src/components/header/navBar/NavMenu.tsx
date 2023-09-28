@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import NavList from "@/components/elements/nav-list";
 import { NAV_MENU_DATA } from "@/components/configs/NAV_MENU_DATA";
 import { Box, useMediaQuery } from "@chakra-ui/react";
+import { SectionContext } from "@/context/ScrollSectionContext";
 
 const NavMenu = () => {
+  const { setSectionId } = useContext(SectionContext);
   const [selectedNavItemID, setSelectedNavItemID] = useState<string>("");
   const [isSmallerThan995] = useMediaQuery("(max-width: 995px)");
   const handleMoveToSection = (id: string) => {
     setSelectedNavItemID(id);
+    setSectionId(id);
   };
 
   return (

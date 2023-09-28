@@ -4,18 +4,25 @@ const FooterDownload = () => {
   return (
     <Box
       px={"15px"}
-      bg={"url(/assets/imgs/footer_download_bg.png) no-repeat center 150px"}
+      bg={{
+        base: "none",
+        lg: "url(/assets/imgs/footer_download_bg.png) no-repeat center 150px",
+      }}
       bgSize={"contain"}
     >
-      <Flex mx={"-15px"}>
-        <Box px={"15px"} w={"33.33%"}>
+      <Flex flexDir={{ base: "column", lg: "row" }} mx={"-15px"}>
+        <Box px={"15px"} w={{ base: "100%", lg: "33.33%" }}>
           <Image src="/assets/imgs/footer_smartphone.png" maxW={"100%"} />
         </Box>
-        <Box ml={"16.67%"} px={"15px"} w={"50%"}>
-          <Box mt={"180px"}>
+        <Box
+          ml={{ base: 0, lg: "16.67%" }}
+          px={"15px"}
+          w={{ base: "100%", lg: "50%" }}
+        >
+          <Box mt={{ base: "50px", lg: "180px" }}>
             <Heading
               as={"h2"}
-              color={"white"}
+              color={{ base: "primary", lg: "white" }}
               fontSize={"36px"}
               mb={"20px"}
               fontWeight={"600"}

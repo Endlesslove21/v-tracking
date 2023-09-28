@@ -38,6 +38,7 @@ const Agents = () => {
         {selectedAgentID ? (
           <Grid
             templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(2, 1fr)" }}
+            px={"15px"}
           >
             {AGENTS_DATA[selectedAgentID - 1].company.map((company) => (
               <Box

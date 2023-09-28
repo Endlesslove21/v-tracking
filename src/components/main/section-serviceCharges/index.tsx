@@ -9,7 +9,7 @@ import { Icon } from "@chakra-ui/icon";
 import { AiOutlineCheck } from "react-icons/ai";
 import RegisterModal from "@/components/header/modal/RegisterModal";
 import { useDisclosure } from "@chakra-ui/hooks";
-import { formatCurrency } from "@/components/utilities/formatVnCurency";
+import { formatCurrency } from "@/utilities/formatVnCurency";
 const ServiceCharges = () => {
   const { isOpen, onClose, onOpen } = useDisclosure();
 
