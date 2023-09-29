@@ -10,15 +10,14 @@ type Props = PropsWithChildren<BoxProps> & {
 const ServiceChargeBox = ({ title, children, onClick, ...BoxProps }: Props) => {
   return (
     <Box
-      overflow={"hidden"}
+      overflowY={"hidden"}
       borderWidth={"5px 1px 1px 1px"}
       borderColor={"#d2d2d2"}
       borderStyle={"solid"}
       bgColor={"white"}
       borderRadius={"12px"}
-      mx={"15px"}
-      margin={{ base: "0 auto", lg: "0 15px" }}
-      w={{ base: "90%", lg: "33%" }}
+      mx={{ lg: "15px" }}
+      w={{ base: "100%", lg: "33.33%" }}
       mb={{ base: 5, lg: 0 }}
       _hover={{ borderColor: "second" }}
       {...BoxProps}

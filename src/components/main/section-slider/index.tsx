@@ -24,13 +24,8 @@ const Slider = () => {
       w={"100%"}
       height={"830px"}
     >
-      <Wrapper flexDir={"column"}>
-        <Box
-          w={{ base: "90%", md: "70%", xl: "50%" }}
-          pl={{ xl: "10px" }}
-          pr={{ xl: "150px" }}
-          mx={{ base: 3, xl: 0 }}
-        >
+      <Wrapper px={{ base: "15px", lg: 0 }} flexDir={"column"}>
+        <Box w={{ base: "90%", md: "70%", xl: "50%" }} pr={{ xl: "150px" }}>
           <HeadingTitle
             sx={{ textAlign: "left" }}
             title="HỆ THỐNG QUẢN LÝ VÀ GIÁM SÁT PHƯƠNG TIỆN VẬN TẢI V-TRACKING"

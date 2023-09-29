@@ -3,14 +3,20 @@ import NavList from "@/components/elements/nav-list";
 import { NAV_MENU_DATA } from "@/components/configs/NAV_MENU_DATA";
 import { Box, useMediaQuery } from "@chakra-ui/react";
 import { SectionContext } from "@/context/ScrollSectionContext";
+type Props = {
+  onClose?: () => void;
+};
 
-const NavMenu = () => {
+const NavMenu = ({ onClose }: Props) => {
   const { setSectionId } = useContext(SectionContext);
   const [selectedNavItemID, setSelectedNavItemID] = useState<string>("");
   const [isSmallerThan995] = useMediaQuery("(max-width: 995px)");
   const handleMoveToSection = (id: string) => {
     setSelectedNavItemID(id);
     setSectionId(id);
+    if (onClose) {
+      onClose();
+    }
   };
 
   return (

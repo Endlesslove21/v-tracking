@@ -14,19 +14,19 @@ import { FaPhoneVolume } from "react-icons/fa6";
 type Props = {
   isOpen: boolean;
   onClick?: () => void;
+  onClose?: () => void;
 };
 
-const MobileNavMenu = ({ isOpen, onClick }: Props) => {
+const MobileNavMenu = ({ isOpen, onClick, onClose }: Props) => {
   return (
     <Collapse in={isOpen} animateOpacity>
       <Box flexDir={"column"} bgColor={"#fff"} w={"100%"} h={"100vh"}>
-        <NavMenu />
+        <NavMenu onClose={onClose} />
         <Center>
           <CustomButton onClick={onClick} mt={10} p={"12px 14px"} w={"150px"}>
             Đăng nhập
           </CustomButton>
         </Center>
-
         <Center gap={10} mt={10}>
           <Link href="mailto:cskh@viettel.com.vn?Subject=Vtracking">
             <Flex gap={1}>

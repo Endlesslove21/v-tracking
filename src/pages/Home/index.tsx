@@ -1,3 +1,4 @@
+import RegisterBox from "@/components/fixedElements/RegisterBox";
 import Agents from "@/components/main/section-agents";
 import Features from "@/components/main/section-features";
 import Models from "@/components/main/section-model";
@@ -6,11 +7,11 @@ import ServiceCharges from "@/components/main/section-serviceCharges";
 import Slider from "@/components/main/section-slider";
 import TargetUsers from "@/components/main/section-target_users";
 import { SectionContext } from "@/context/ScrollSectionContext";
+import { Box } from "@chakra-ui/react";
 import { useContext, useEffect } from "react";
 
 const Home = () => {
   const { sectionId } = useContext(SectionContext);
-  const { headerHeight } = useContext(SectionContext);
   useEffect(() => {
     const handleClickScroll = async (id: string) => {
       const element = document.getElementById(id);
@@ -19,7 +20,7 @@ const Home = () => {
         await new Promise((resolve) => requestAnimationFrame(resolve));
         // Scroll smoothly to the top of the next section
         window.scrollTo({
-          top: element.offsetTop - 90,
+          top: element.offsetTop - 70,
           behavior: "smooth",
         });
       }
@@ -28,7 +29,7 @@ const Home = () => {
   }, [sectionId]);
 
   return (
-    <main>
+    <Box as="main" pos={"relative"}>
       <Slider />
       <div id="tinh-nang">
         <Features />
@@ -46,7 +47,8 @@ const Home = () => {
         <Agents />
       </div>
       <OurCustomers />
-    </main>
+      <RegisterBox />
+    </Box>
   );
 };
 

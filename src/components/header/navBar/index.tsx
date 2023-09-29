@@ -28,8 +28,11 @@ const NavBar = () => {
     onClose: onCloseLoginModal,
     onOpen: onOpenLoginModal,
   } = useDisclosure();
-  const { isOpen: isOpenMobileNavMenu, onToggle: onToggleMobileNavMenu } =
-    useDisclosure();
+  const {
+    isOpen: isOpenMobileNavMenu,
+    onToggle: onToggleMobileNavMenu,
+    onClose: onCloseMobileNavMenu,
+  } = useDisclosure();
 
   // handle navmenu bg to white color when scrolling down
   useEffect(() => {
@@ -50,13 +53,16 @@ const NavBar = () => {
     <>
       {/* header */}
       <Box
-        bgColor={isScrolling ? "#fff" : "transparent"}
+        bgColor={
+          isSmallerThan995 ? "white" : isScrolling ? "#fff" : "transparent"
+        }
         boxShadow={isScrolling ? "md" : "none"}
       >
         <Wrapper
-          py={2}
+          pb={2}
+          pt={3}
           px={isSmallerThan995 ? "15px" : 0}
-          m={isSmallerThan995 ? "0" : "0 auto"}
+          maxW={{ lg: "970px", xl: "1170px" }}
           justifyContent={"space-between"}
           flexDir={isSmallerThan1200 && isLargerThan995 ? "column" : "row"}
           alignItems={"center"}
@@ -71,12 +77,7 @@ const NavBar = () => {
             justifyContent={"space-between"}
           >
             <NavMenu />
-            <CustomButton
-              onClick={onOpenLoginModal}
-              ml={"60px"}
-              p={"12px 14px"}
-              w={"150px"}
-            >
+            <CustomButton onClick={onOpenLoginModal} ml={"60px"} w={"150px"}>
               Đăng nhập
             </CustomButton>
           </Flex>
@@ -100,6 +101,7 @@ const NavBar = () => {
           <MobileNavMenu
             onClick={onOpenLoginModal}
             isOpen={isOpenMobileNavMenu}
+            onClose={onCloseMobileNavMenu}
           />
         )}
       </Box>

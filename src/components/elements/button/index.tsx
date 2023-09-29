@@ -1,5 +1,5 @@
 import { PropsWithChildren } from "react";
-import { ChakraProps, Flex, Text } from "@chakra-ui/react";
+import { ChakraProps, Flex, Text, TextProps } from "@chakra-ui/react";
 type Props = PropsWithChildren<ChakraProps> & {
   onClick?: () => void;
 };
@@ -13,6 +13,7 @@ const CustomButton = ({ children, onClick, ...ChakraProps }: Props) => {
       justifyContent={"center"}
       alignItems={"center"}
       borderRadius={"30px"}
+      py={2}
       cursor={"pointer"}
       bgGradient="linear(270deg, #BA1318 0%, #E61A45 60.42%, #EE0000 100% )"
     >

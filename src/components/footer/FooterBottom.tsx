@@ -1,11 +1,13 @@
 import {
   Box,
+  Container,
   Flex,
   Heading,
   Icon,
   Image,
   Text,
   useDisclosure,
+  useMediaQuery,
 } from "@chakra-ui/react";
 import Wrapper from "../elements/Wrapper";
 import NavList from "../elements/nav-list";
@@ -17,6 +19,7 @@ import RegisterModal from "../header/modal/RegisterModal";
 
 const FooterBottom = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isSmallerThan995] = useMediaQuery("max-width('995px')");
   return (
     <Box mt="80px" mb="50px">
       <Wrapper px={"15px"} flexDir={"column"}>
@@ -45,30 +48,24 @@ const FooterBottom = () => {
                 <Text>cskh@viettel.com.vn</Text>
               </Box>
               <Box as="li" display={"flex"} gap={1} py={"7px"}>
-                <Image src="/assets/imgs/ipv6.png" maxW={"100%"} />
+                <Image src="/assets/imgs/ipv6.png" maxW={"70%"} />
               </Box>
             </NavList>
           </Box>
 
-          <Flex
-            justifyContent={{ base: "center", lg: "flex-end" }}
-            w={{ base: "100%", lg: "25%" }}
-            px={"15px"}
-          >
-            <Box w={"100%"}>
-              <CustomButton
-                _hover={{
-                  background:
-                    "linear-gradient(270deg, #FF575D 0%, #D72F2F 100% )",
-                }}
-                py={2}
-                w={"50%"}
-                onClick={onOpen}
-              >
-                Gửi liên hệ
-              </CustomButton>
-            </Box>
-          </Flex>
+          <Box ml={{ lg: "auto" }}>
+            <CustomButton
+              _hover={{
+                background:
+                  "linear-gradient(270deg, #FF575D 0%, #D72F2F 100% )",
+              }}
+              py={2}
+              w={"150px"}
+              onClick={onOpen}
+            >
+              Gửi liên hệ
+            </CustomButton>
+          </Box>
         </Flex>
       </Wrapper>
       <RegisterModal isOpen={isOpen} onClose={onClose} />

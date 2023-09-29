@@ -18,10 +18,15 @@ const HeaderTop = () => {
   return (
     <Box
       bg={"white"}
+      pt={1}
       display={isLargerThan995 ? "block" : "none"}
       borderBottom={"1px solid #ccc"}
     >
-      <Wrapper justifyContent={"space-between"} py={1}>
+      <Wrapper
+        maxW={{ lg: "970px", xl: "1170px" }}
+        justifyContent={"space-between"}
+        py={1}
+      >
         <Flex>
           <Link
             color={"header_contact"}

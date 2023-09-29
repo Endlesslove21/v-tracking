@@ -18,9 +18,9 @@ const ServiceCharges = () => {
       <Wrapper flexDir={"column"}>
         <HeadingTitle title="phí dịch vụ" mb={"40px"} />
         <Flex
-          mx={"-15px"}
           flexDir={{ base: "column", lg: "row" }}
-          justifyContent={"space-between"}
+          mx={{ base: "15px", lg: "-15px" }}
+          // justifyContent={"space-between"}
         >
           {SERVICE_CHARGES_DATA.map((item) => {
             if (item.title === "Thiết bị đọc RFID") {

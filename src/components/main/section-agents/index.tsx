@@ -3,7 +3,7 @@ import Wrapper from "@/components/elements/Wrapper";
 import HeadingTitle from "@/components/elements/heading";
 import { Box, Center, Grid, Select, Text } from "@chakra-ui/react";
 import { useState } from "react";
-
+import "./option.css";
 const Agents = () => {
   const [selectedAgentID, setSelectedAgentID] = useState<number | null>(null);
 
@@ -19,7 +19,7 @@ const Agents = () => {
           borderBottom={selectedAgentID ? "none" : "1px solid #ccc"}
         >
           <Select
-            w={"20%"}
+            w={["60", "50%", null, "40%", "20%"]}
             iconSize={"30px"}
             fontSize={"16px"}
             placeholder="Tỉnh/Thành phố"
@@ -27,9 +27,14 @@ const Agents = () => {
             onChange={(e) => setSelectedAgentID(Number(e.target.value))}
           >
             {AGENTS_DATA.map((agent) => (
-              <option key={agent.id} value={agent.id}>
+              <Box
+                as="option"
+                className="agents-option"
+                key={agent.id}
+                value={agent.id}
+              >
                 {agent.province}
-              </option>
+              </Box>
             ))}
           </Select>
         </Center>
@@ -38,7 +43,7 @@ const Agents = () => {
         {selectedAgentID ? (
           <Grid
             templateColumns={{ base: "repeat(1, 1fr)", lg: "repeat(2, 1fr)" }}
-            px={"15px"}
+            px={{ lg: 0, base: "15px" }}
           >
             {AGENTS_DATA[selectedAgentID - 1].company.map((company) => (
               <Box
