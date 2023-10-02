@@ -21,7 +21,7 @@ const MainLayout = ({ children }: Props) => {
   }, []);
 
   const handleShowSrollTopBtn = () => {
-    if (window.screenY > 80) {
+    if (window.scrollY > 350) {
       setIsShowScrollBtn(true);
     } else {
       setIsShowScrollBtn(false);
@@ -40,6 +40,7 @@ const MainLayout = ({ children }: Props) => {
       <SectionContext.Provider value={value}>
         <Header />
         {children ? children : <Outlet />}
+
         <Footer />
         {isShowScrollBtn && <ScrollTopBtn onClick={handleScrollToTop} />}
       </SectionContext.Provider>

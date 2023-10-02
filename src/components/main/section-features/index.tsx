@@ -21,6 +21,7 @@ const Features = () => {
   const [isLargerThan995] = useMediaQuery("(min-width: 995px)");
   return (
     <Wrapper
+      mt={{ base: 200, lg: "0" }}
       px={{ base: 3, lg: 0 }}
       py={{ base: "30px", lg: "70px" }}
       flexDir={"column"}

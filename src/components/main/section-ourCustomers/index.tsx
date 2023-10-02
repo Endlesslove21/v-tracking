@@ -13,24 +13,19 @@ const OurCustomers = () => {
         <Flex flexDir={{ base: "column", lg: "row" }} mx={"-15px"}>
           <OurCustomersBox
             ml={{ base: 0, lg: "16.67%" }}
-            customerAmount="52.000"
-            content={
-              <Text>
-                Tổng số khách hàng <br /> đang sử dụng dịch vụ
-              </Text>
-            }
-          />
-          <OurCustomersBox
-            ml={{ base: 0, lg: "8.33%" }}
-            customerAmount="  68.000"
-            content={
-              <Text>
-                Tổng số thuê bao
-                <br />
-                đã kích hoạt dịch vụ
-              </Text>
-            }
-          />
+            customerAmount={52000}
+          >
+            <Text>
+              Tổng số khách hàng <br /> đang sử dụng dịch vụ
+            </Text>
+          </OurCustomersBox>
+          <OurCustomersBox ml={{ base: 0, lg: "8.33%" }} customerAmount={68000}>
+            <Text>
+              Tổng số thuê bao
+              <br />
+              đã kích hoạt dịch vụ
+            </Text>
+          </OurCustomersBox>
         </Flex>
         <Text mt={2} textAlign={"center"}>
           Dịch vụ V-Tracking chính thức được cung cấp từ năm 2012.

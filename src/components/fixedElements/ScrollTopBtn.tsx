@@ -8,12 +8,13 @@ type Props = {
 const ScrollTopBtn = ({ onClick }: Props) => {
   return (
     <CustomButton
-      w={"60px"}
-      height={"60px"}
+      w={"50px"}
+      height={"50px"}
       pos={"fixed"}
       bottom={"60px"}
       right={"25px"}
       zIndex={99}
+      sx={{ borderRadius: "9px" }}
       onClick={onClick}
     >
       <Icon as={IoIosArrowUp} mt={1} boxSize={7} />

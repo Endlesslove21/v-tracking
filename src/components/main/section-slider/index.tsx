@@ -3,9 +3,20 @@ import CustomButton from "@/components/elements/button";
 import HeadingTitle from "@/components/elements/heading";
 import RegisterModal from "@/components/header/modal/RegisterModal";
 import VideoModal from "@/components/header/modal/VideoModal";
-import { Box, Flex, Image, Link, Text, useDisclosure } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Image,
+  Link,
+  Text,
+  useDisclosure,
+  useMediaQuery,
+} from "@chakra-ui/react";
+import "./animationDisplay.css";
 
 const Slider = () => {
+  const [isSmallerThan995] = useMediaQuery("max-width(995px)");
+
   const {
     isOpen: isVideoModalOpen,
     onClose: onCloseVideoModalOpen,
@@ -22,20 +33,27 @@ const Slider = () => {
       bg={"url(/assets/imgs/banner-n.png) no-repeat center top"}
       pt={"180px"}
       w={"100%"}
-      height={"830px"}
+      height={"100vh"}
     >
       <Wrapper px={{ base: "15px", lg: 0 }} flexDir={"column"}>
         <Box w={{ base: "90%", md: "70%", xl: "50%" }} pr={{ xl: "150px" }}>
           <HeadingTitle
+            className="sliderBox animationDelay1"
             sx={{ textAlign: "left" }}
             title="HỆ THỐNG QUẢN LÝ VÀ GIÁM SÁT PHƯƠNG TIỆN VẬN TẢI V-TRACKING"
           />
-          <Text mt={"20px"} mb={"30px"} pr={"50px"}>
+          <Text
+            className="sliderBox animationDelay2"
+            mt={"20px"}
+            mb={"30px"}
+            pr={"50px"}
+          >
             Chỉ cần truy cập hệ thống từ các thiết bị có kết nối internet để
             giám sát hành trình và quản lý những chiếc xe của bạn
           </Text>
 
           <CustomButton
+            className="sliderBox animationDelay3"
             onClick={onOpenRegisterModal}
             w={{ base: "70%", lg: "60%" }}
             py={2}
@@ -43,7 +61,7 @@ const Slider = () => {
           >
             Đăng ký nhận tư vấn miễn phí
           </CustomButton>
-          <Flex>
+          <Flex className="sliderBox animationDelay4">
             <Box
               onClick={onOpenVideoModal}
               mt={7}
@@ -68,6 +86,7 @@ const Slider = () => {
             </Box>
           </Flex>
           <Link
+            className="sliderBox animationDelay5"
             target="_blank"
             href="https://viettel.vn/chi-tiet-video/QXJ0aWNs160210389e288e?catId=QXJ0aWNs15982a50944b96"
           >
@@ -83,6 +102,21 @@ const Slider = () => {
               </Text>
             </Box>
           </Link>
+        </Box>
+
+        <Box
+          className="sliderImg"
+          display={{ base: "block", lg: "none" }}
+          ml={"auto"}
+          mb={"100px"}
+          w={{ base: "100%", sm: "85%", md: "75%" }}
+          mt={{ base: 0, sm: "-33px", md: "-53px" }}
+        >
+          <Image
+            src="/assets/imgs/n-photo-banner.png"
+            maxW={"100%"}
+            height={"auto"}
+          />
         </Box>
       </Wrapper>
       {/* introducing v-tracking video modal */}

@@ -8,11 +8,10 @@ type Props = {
 };
 
 const NavMenu = ({ onClose }: Props) => {
-  const { setSectionId } = useContext(SectionContext);
-  const [selectedNavItemID, setSelectedNavItemID] = useState<string>("");
+  const { sectionId, setSectionId } = useContext(SectionContext);
+
   const [isSmallerThan995] = useMediaQuery("(max-width: 995px)");
   const handleMoveToSection = (id: string) => {
-    setSelectedNavItemID(id);
     setSectionId(id);
     if (onClose) {
       onClose();
@@ -38,7 +37,7 @@ const NavMenu = ({ onClose }: Props) => {
             content: `""`,
             pos: "absolute",
             width: "100%",
-            opacity: item.id === selectedNavItemID ? 1 : 0,
+            opacity: item.id === sectionId ? 1 : 0,
             height: "3px",
             bottom: 0,
             left: 0,
@@ -60,7 +59,7 @@ const NavMenu = ({ onClose }: Props) => {
               transition: "1s ease",
             }}
             fontWeight={"600"}
-            color={selectedNavItemID === item.id ? "second" : "primary"}
+            color={sectionId === item.id ? "second" : "primary"}
             cursor={"pointer"}
             fontSize={"16px"}
             onClick={() => handleMoveToSection(item.id)}

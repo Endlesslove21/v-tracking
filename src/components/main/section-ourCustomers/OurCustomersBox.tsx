@@ -1,12 +1,12 @@
+import AnimatedNumber from "@/utilities/CountUp";
 import { Box, Heading, BoxProps } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { PropsWithChildren } from "react";
 
-type Props = BoxProps & {
-  customerAmount: string;
-  content: ReactNode;
+type Props = PropsWithChildren<BoxProps> & {
+  customerAmount: number;
 };
 
-const OurCustomersBox = ({ customerAmount, content, ...BoxProps }: Props) => {
+const OurCustomersBox = ({ customerAmount, children, ...BoxProps }: Props) => {
   return (
     <Box {...BoxProps} px={"15px"} w={{ base: "100%", lg: "33.33%" }}>
       <Box
@@ -16,10 +16,11 @@ const OurCustomersBox = ({ customerAmount, content, ...BoxProps }: Props) => {
         minH={"240px"}
         pl={"170px"}
       >
-        <Heading as={"h4"} fontSize={"36px"} color={"second"}>
-          {customerAmount}
-        </Heading>
-        {content}
+        <AnimatedNumber
+          animationDuration={2000}
+          targetNumber={customerAmount}
+        />
+        {children}
       </Box>
     </Box>
   );
