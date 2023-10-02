@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {
   Box,
+  Collapse,
   Flex,
   Icon,
   Image,
@@ -15,6 +16,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import LoginModal from "../modal/LoginModal";
 import MobileNavMenu from "./MobileNavMenu";
+import { SectionContext } from "@/context/ScrollSectionContext";
 
 const NavBar = () => {
   const [isScrolling, setIsScrolling] = useState<boolean>(false);
@@ -28,12 +30,8 @@ const NavBar = () => {
     onClose: onCloseLoginModal,
     onOpen: onOpenLoginModal,
   } = useDisclosure();
-  const {
-    isOpen: isOpenMobileNavMenu,
-    onToggle: onToggleMobileNavMenu,
-    onClose: onCloseMobileNavMenu,
-  } = useDisclosure();
-
+  const { isOpenMobileNavMenu, onToggleMobileNavMenu, onCloseMobileNavMenu } =
+    useContext(SectionContext);
   // handle navmenu bg to white color when scrolling down
   useEffect(() => {
     const handleScroll = () => {
@@ -97,13 +95,12 @@ const NavBar = () => {
         <LoginModal isOpen={isOpenLoginModal} onClose={onCloseLoginModal} />
 
         {/* show nav menu for mobile  */}
-        {!isLargerThan995 && (
-          <MobileNavMenu
-            onClick={onOpenLoginModal}
-            isOpen={isOpenMobileNavMenu}
-            onClose={onCloseMobileNavMenu}
-          />
-        )}
+
+        <Box display={isLargerThan995 ? "none" : "block"}>
+          <Collapse in={isOpenMobileNavMenu}>
+            <MobileNavMenu onClick={onOpenLoginModal} />
+          </Collapse>
+        </Box>
       </Box>
     </>
   );

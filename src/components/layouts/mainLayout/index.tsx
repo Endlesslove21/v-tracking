@@ -4,13 +4,26 @@ import Footer from "../../footer";
 import { Outlet } from "react-router-dom";
 import { SectionContext } from "@/context/ScrollSectionContext";
 import ScrollTopBtn from "@/components/fixedElements/ScrollTopBtn";
+import { useDisclosure } from "@chakra-ui/react";
 
 type Props = React.PropsWithChildren<{}>;
 
 const MainLayout = ({ children }: Props) => {
   const [sectionId, setSectionId] = useState<string>("");
+  const {
+    isOpen: isOpenMobileNavMenu,
+    onToggle: onToggleMobileNavMenu,
+    onClose: onCloseMobileNavMenu,
+  } = useDisclosure();
+
   const [isShowScrollBtn, setIsShowScrollBtn] = useState<boolean>(false);
-  const value = { sectionId, setSectionId };
+  const value = {
+    sectionId,
+    setSectionId,
+    isOpenMobileNavMenu,
+    onToggleMobileNavMenu,
+    onCloseMobileNavMenu,
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleShowSrollTopBtn);

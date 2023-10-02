@@ -1,15 +1,26 @@
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import NavList from "@/components/elements/nav-list";
 import { NAV_MENU_DATA } from "@/components/configs/NAV_MENU_DATA";
 import { Box, useMediaQuery } from "@chakra-ui/react";
-import { SectionContext } from "@/context/ScrollSectionContext";
 import getCurrentSectionInView from "@/utilities/getCurrentSectionInView";
-type Props = {
-  onClose?: () => void;
-};
+import { SectionContext } from "@/context/ScrollSectionContext";
 
-const NavMenu = ({ onClose }: Props) => {
-  const { sectionId, setSectionId } = useContext(SectionContext);
+const NavMenu = () => {
+  const { sectionId, setSectionId, onCloseMobileNavMenu } =
+    useContext(SectionContext);
+  const [isSmallerThan995] = useMediaQuery("(max-width: 995px)");
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      const currentSectionId = getCurrentSectionInView();
+      if (currentSectionId) {
+        setSectionId(currentSectionId);
+      } else {
+        setSectionId("");
+      }
+    });
+  }, []);
+
   const handleClickNavItem = (id: string) => {
     const sectionClick = document.getElementById(id);
     if (sectionClick) {
@@ -17,22 +28,8 @@ const NavMenu = ({ onClose }: Props) => {
         top: sectionClick.offsetTop - 70,
         behavior: "smooth",
       });
-    }
-  };
 
-  window.addEventListener("scroll", () => {
-    const currentSectionId = getCurrentSectionInView();
-    if (currentSectionId) {
-      setSectionId(currentSectionId);
-    }
-  });
-
-  const [isSmallerThan995] = useMediaQuery("(max-width: 995px)");
-
-  const handleMoveToSection = (id: string) => {
-    setSectionId(id);
-    if (onClose) {
-      onClose();
+      console.log(sectionId);
     }
   };
 
@@ -46,10 +43,6 @@ const NavMenu = ({ onClose }: Props) => {
     >
       {NAV_MENU_DATA.map((item) => (
         <Box
-          onClick={() => {
-            handleClickNavItem(item.id);
-          }}
-          // className="nav-item"
           key={item.id}
           pos={"relative"}
           as="li"
@@ -85,7 +78,9 @@ const NavMenu = ({ onClose }: Props) => {
             color={sectionId === item.id ? "second" : "primary"}
             cursor={"pointer"}
             fontSize={"16px"}
-            onClick={() => handleMoveToSection(item.id)}
+            onClick={() => {
+              handleClickNavItem(item.id);
+            }}
           >
             {item.title}
           </Box>
