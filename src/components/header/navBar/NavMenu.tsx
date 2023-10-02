@@ -1,16 +1,34 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import NavList from "@/components/elements/nav-list";
 import { NAV_MENU_DATA } from "@/components/configs/NAV_MENU_DATA";
 import { Box, useMediaQuery } from "@chakra-ui/react";
 import { SectionContext } from "@/context/ScrollSectionContext";
+import getCurrentSectionInView from "@/utilities/getCurrentSectionInView";
 type Props = {
   onClose?: () => void;
 };
 
 const NavMenu = ({ onClose }: Props) => {
   const { sectionId, setSectionId } = useContext(SectionContext);
+  const handleClickNavItem = (id: string) => {
+    const sectionClick = document.getElementById(id);
+    if (sectionClick) {
+      window.scrollTo({
+        top: sectionClick.offsetTop - 70,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  window.addEventListener("scroll", () => {
+    const currentSectionId = getCurrentSectionInView();
+    if (currentSectionId) {
+      setSectionId(currentSectionId);
+    }
+  });
 
   const [isSmallerThan995] = useMediaQuery("(max-width: 995px)");
+
   const handleMoveToSection = (id: string) => {
     setSectionId(id);
     if (onClose) {
@@ -28,6 +46,10 @@ const NavMenu = ({ onClose }: Props) => {
     >
       {NAV_MENU_DATA.map((item) => (
         <Box
+          onClick={() => {
+            handleClickNavItem(item.id);
+          }}
+          // className="nav-item"
           key={item.id}
           pos={"relative"}
           as="li"
@@ -52,6 +74,7 @@ const NavMenu = ({ onClose }: Props) => {
           }}
         >
           <Box
+            // className="link-nav__item"
             as={"a"}
             display={"inline-block"}
             _hover={{

@@ -6,42 +6,40 @@ import ServiceCharges from "@/components/main/section-serviceCharges";
 import Slider from "@/components/main/section-slider";
 import TargetUsers from "@/components/main/section-target_users";
 import { SectionContext } from "@/context/ScrollSectionContext";
-import getCurrentSectionInView from "@/utilities/getCurrentSectionInView";
+// import getCurrentSectionInView from "@/utilities/getCurrentSectionInView";
 import { Box } from "@chakra-ui/react";
 import { useContext, useEffect } from "react";
 
 const Home = () => {
-  const { sectionId, setSectionId } = useContext(SectionContext);
-  useEffect(() => {
-    const handleClickScroll = async (id: string) => {
-      const element = document.getElementById(id);
-      if (element) {
-        await new Promise((resolve) => requestAnimationFrame(resolve));
-        window.scrollTo({
-          top: element.offsetTop - 70,
-          behavior: "smooth",
-        });
-      }
-    };
-    handleClickScroll(sectionId);
-  }, [sectionId]);
+  // const { sectionId, setSectionId } = useContext(SectionContext);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentSectionId = getCurrentSectionInView();
-      if (currentSectionId !== sectionId) {
-        setSectionId(currentSectionId);
-      }
-    };
+  // const handleClickScroll = (id: string) => {
 
-    // Attach the scroll event listener
-    window.addEventListener("scroll", handleScroll);
+  //   console.log(idSection);
+  //   // if (idSection) {
+  //   //   //  new Promise((resolve) => requestAnimationFrame(resolve));
+  //   //   window.scrollTo({
+  //   //     top: idSection.offsetTop - 70,
+  //   //     behavior: "smooth",
+  //   //   });
+  //   // }
+  // };
+  // handleClickScroll(sectionId);
+  // useEffect(() => {
 
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [sectionId, setSectionId]);
+  // }, [setSectionId]);
+
+  // useEffect(() => {
+  //   // const handleScroll = () => {
+  //   //   // const currentSectionId = getCurrentSectionInView();
+  //   //   // if (currentSectionId !== sectionId) {
+  //   //   //   setSectionId(currentSectionId);
+  //   //   // }
+  //   // };
+
+  //   // Attach the scroll event listener
+  //   window.addEventListener("scroll", getCurrentSectionInView);
+  // });
 
   return (
     <Box as="main" pos={"relative"}>
