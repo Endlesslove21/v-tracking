@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import NavList from "@/components/elements/nav-list";
 import { NAV_MENU_DATA } from "@/components/configs/NAV_MENU_DATA";
 import { Box, useMediaQuery } from "@chakra-ui/react";
@@ -28,8 +28,7 @@ const NavMenu = () => {
         top: sectionClick.offsetTop - 70,
         behavior: "smooth",
       });
-
-      console.log(sectionId);
+      onCloseMobileNavMenu();
     }
   };
 

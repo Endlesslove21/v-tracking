@@ -1,12 +1,12 @@
-import { chakra, ChakraProps, UnorderedList } from "@chakra-ui/react";
+import { chakra, BoxProps, UnorderedList } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
 const Nav = chakra("nav");
 
-type NavListProps = PropsWithChildren<ChakraProps>;
-const NavList = ({ children, ...ChakraProps }: NavListProps) => {
+type NavListProps = PropsWithChildren<BoxProps>;
+const NavList = ({ children, ...BoxProps }: NavListProps) => {
   return (
     <Nav>
-      <UnorderedList ml={0} {...ChakraProps}>
+      <UnorderedList ml={0} {...BoxProps}>
         {children}
       </UnorderedList>
     </Nav>

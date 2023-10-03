@@ -1,5 +1,5 @@
-import AnimatedNumber from "@/utilities/CountUp";
-import { Box, Heading, BoxProps } from "@chakra-ui/react";
+import AnimatedNumber from "@/components/elements/count-up";
+import { Box, BoxProps } from "@chakra-ui/react";
 import { PropsWithChildren } from "react";
 
 type Props = PropsWithChildren<BoxProps> & {
