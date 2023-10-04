@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
 import FooterDownload from "./FooterDownload";
-import Wrapper from "../elements/Wrapper";
+import Wrapper from "../elements/wrapper";
 import FooterBottom from "./FooterBottom";
 
 const Footer = () => {

@@ -1,5 +1,5 @@
-import { MODELS_DATA } from "@/components/configs/MODELS_DATA";
-import Wrapper from "@/components/elements/Wrapper";
+import { MODELS_DATA } from "@/configs/MODELS_DATA";
+import Wrapper from "@/components/elements/wrapper";
 import HeadingTitle from "@/components/elements/heading";
 import { Box, Flex, Image } from "@chakra-ui/react";
 import ModalBox from "./ModalBox";

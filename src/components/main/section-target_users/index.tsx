@@ -1,5 +1,5 @@
-import { TARGET_USERS_DATA } from "@/components/configs/TARGET_USERS_DATA";
-import Wrapper from "@/components/elements/Wrapper";
+import { TARGET_USERS_DATA } from "@/configs/TARGET_USERS_DATA";
+import Wrapper from "@/components/elements/wrapper";
 import HeadingTitle from "@/components/elements/heading";
 import { Box, Flex, Grid, Image, Text } from "@chakra-ui/react";
 

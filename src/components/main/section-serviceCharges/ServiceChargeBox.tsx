@@ -1,13 +1,16 @@
+import { useContext } from "react";
 import CustomButton from "@/components/elements/button";
 import { Box, BoxProps, Center, Heading } from "@chakra-ui/layout";
 import { PropsWithChildren } from "react";
 import "./scrollbar.css";
+import { SectionContext } from "@/context/ScrollSectionContext";
 type Props = PropsWithChildren<BoxProps> & {
   title: string;
-  onClick: () => void;
 };
 
-const ServiceChargeBox = ({ title, children, onClick, ...BoxProps }: Props) => {
+const ServiceChargeBox = ({ title, children, ...BoxProps }: Props) => {
+  const { onToggleRegisterModal } = useContext(SectionContext);
+
   return (
     <Box
       overflowY={"hidden"}
@@ -42,7 +45,7 @@ const ServiceChargeBox = ({ title, children, onClick, ...BoxProps }: Props) => {
         {children}
       </Box>
       <Center mb={10}>
-        <CustomButton onClick={onClick} w={"30%"} py={2}>
+        <CustomButton onClick={onToggleRegisterModal} w={"30%"} py={2}>
           Đăng ký
         </CustomButton>
       </Center>

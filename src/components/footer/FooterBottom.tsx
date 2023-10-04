@@ -1,25 +1,15 @@
-import {
-  Box,
-  Container,
-  Flex,
-  Heading,
-  Icon,
-  Image,
-  Text,
-  useDisclosure,
-  useMediaQuery,
-} from "@chakra-ui/react";
-import Wrapper from "../elements/Wrapper";
+import { useContext } from "react";
+import { Box, Flex, Heading, Icon, Image, Text } from "@chakra-ui/react";
+import Wrapper from "../elements/wrapper";
 import NavList from "../elements/nav-list";
 import { IoLocation } from "react-icons/io5";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import CustomButton from "../elements/button";
-import RegisterModal from "../header/modal/RegisterModal";
+import { SectionContext } from "@/context/ScrollSectionContext";
 
 const FooterBottom = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [isSmallerThan995] = useMediaQuery("max-width('995px')");
+  const { onToggleRegisterModal } = useContext(SectionContext);
   return (
     <Box mt="80px" mb="50px">
       <Wrapper px={"15px"} flexDir={"column"}>
@@ -53,7 +43,12 @@ const FooterBottom = () => {
             </NavList>
           </Box>
 
-          <Box ml={{ lg: "auto" }}>
+          <Box
+            w={"100%"}
+            display="flex"
+            justifyContent={{ base: "center", lg: "right" }}
+            height={"fit-content"}
+          >
             <CustomButton
               _hover={{
                 background:
@@ -61,14 +56,13 @@ const FooterBottom = () => {
               }}
               py={2}
               w={"150px"}
-              onClick={onOpen}
+              onClick={onToggleRegisterModal}
             >
               Gửi liên hệ
             </CustomButton>
           </Box>
         </Flex>
       </Wrapper>
-      <RegisterModal isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 };

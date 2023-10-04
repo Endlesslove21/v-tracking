@@ -1,5 +1,5 @@
-import { SERVICE_CHARGES_DATA } from "@/components/configs/SERVICE_CHARGES_DATA";
-import Wrapper from "@/components/elements/Wrapper";
+import { SERVICE_CHARGES_DATA } from "@/configs/SERVICE_CHARGES_DATA";
+import Wrapper from "@/components/elements/wrapper";
 import HeadingTitle from "@/components/elements/heading";
 import { Box, Flex, Heading, Text } from "@chakra-ui/layout";
 import ServiceChargeBox from "./ServiceChargeBox";
@@ -7,12 +7,8 @@ import { Image } from "@chakra-ui/image";
 import NavList from "@/components/elements/nav-list";
 import { Icon } from "@chakra-ui/icon";
 import { AiOutlineCheck } from "react-icons/ai";
-import RegisterModal from "@/components/header/modal/RegisterModal";
-import { useDisclosure } from "@chakra-ui/hooks";
 import { formatCurrency } from "@/utilities/formatVnCurency";
 const ServiceCharges = () => {
-  const { isOpen, onClose, onOpen } = useDisclosure();
-
   return (
     <Box w={"100%"} bgColor={"#f3f4f5"} py={"70px"}>
       <Wrapper flexDir={"column"}>
@@ -27,7 +23,6 @@ const ServiceCharges = () => {
               return (
                 <ServiceChargeBox
                   textAlign={"center"}
-                  onClick={onOpen}
                   key={item.title}
                   title={item.title}
                 >
@@ -54,11 +49,7 @@ const ServiceCharges = () => {
               );
             } else
               return (
-                <ServiceChargeBox
-                  onClick={onOpen}
-                  title={item.title}
-                  key={item.title}
-                >
+                <ServiceChargeBox title={item.title} key={item.title}>
                   <NavList listStyleType={"none"}>
                     {item.variants.packages?.map((pk) => (
                       <Box
@@ -126,8 +117,6 @@ const ServiceCharges = () => {
           })}
         </Flex>
       </Wrapper>
-
-      <RegisterModal isOpen={isOpen} onClose={onClose} />
     </Box>
   );
 };

@@ -1,5 +1,5 @@
-import { OUR_CUSTOMERS_DATA } from "@/components/configs/OUR_CUSTOMERS_DATA";
-import Wrapper from "@/components/elements/Wrapper";
+import { OUR_CUSTOMERS_DATA } from "@/configs/OUR_CUSTOMERS_DATA";
+import Wrapper from "@/components/elements/wrapper";
 import HeadingTitle from "@/components/elements/heading";
 import { Image } from "@chakra-ui/image";
 import { Box, Flex, Grid, HStack, Heading, Text } from "@chakra-ui/layout";

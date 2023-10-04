@@ -1,5 +1,5 @@
-import { FEATURES_TAB_DATA } from "@/components/configs/FEATURES_TAB_DATA";
-import Wrapper from "@/components/elements/Wrapper";
+import { FEATURES_TAB_DATA } from "@/configs/FEATURES_TAB_DATA";
+import Wrapper from "@/components/elements/wrapper";
 import HeadingTitle from "@/components/elements/heading";
 import NavList from "@/components/elements/nav-list";
 import {

@@ -1,10 +1,9 @@
-import { useEffect } from "react";
-import { AGENTS_DATA } from "@/components/configs/AGENTS_DATA";
-import NavList from "@/components/elements/nav-list";
+import { AGENTS_DATA } from "@/configs/AGENTS_DATA";
 import { Box, Center, Flex, Grid, Icon, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import "./agents.css";
+import DropdownMenu from "@/components/elements/dropdown-menu";
 
 const AgentSelect = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -42,17 +41,9 @@ const AgentSelect = () => {
               boxSize={5}
             />
           </Flex>
-          <NavList
-            listStyleType={"none"}
-            pos={"absolute"}
-            left={0}
-            zIndex={999}
-            top={9}
-            visibility={isActive ? "visible" : "hidden"}
-            transition={"all 0.2s ease"}
-            w={"100%"}
-            maxH={isActive ? "300px" : 0}
-            overflowY={isActive ? "clip" : "hidden"}
+          <DropdownMenu
+            height={"300px"}
+            isActive={isActive}
             className="agent-border"
           >
             {AGENTS_DATA.map((agent) => (
@@ -83,7 +74,7 @@ const AgentSelect = () => {
                 {agent.province}
               </Box>
             ))}
-          </NavList>
+          </DropdownMenu>
         </Box>
       </Center>
 
@@ -99,7 +90,7 @@ const AgentSelect = () => {
               border={"1px solid #f3f4f5"}
               minH={"100px"}
               p={4}
-              key={company.name}
+              key={`${province}-${company.name}-${company.id}`}
             >
               <Text
                 color={"black"}

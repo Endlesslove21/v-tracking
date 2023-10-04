@@ -1,5 +1,5 @@
 import { Icon } from "@chakra-ui/react";
-import CustomButton from "../elements/button";
+import CustomButton from "../button";
 import { IoIosArrowUp } from "react-icons/io";
 type Props = {
   onClick: () => void;

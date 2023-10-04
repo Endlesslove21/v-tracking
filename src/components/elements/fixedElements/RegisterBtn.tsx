@@ -1,10 +1,10 @@
 import { Box, Center, Image, useDisclosure } from "@chakra-ui/react";
-import CustomButton from "../elements/button";
-import RegisterModal from "../header/modal/RegisterModal";
-
-const RegisterBox = () => {
-  const { onOpen, isOpen, onClose } = useDisclosure();
-
+import CustomButton from "../button";
+import RegisterModal from "../modal/RegisterModal";
+type Props = {
+  onOpenRegisterModal: () => void;
+};
+const RegisterBtn = ({ onOpenRegisterModal }: Props) => {
   return (
     <>
       <Box
@@ -15,22 +15,25 @@ const RegisterBox = () => {
         left={"30px"}
         zIndex={1}
       >
-        <CustomButton p={"1px 10px"}>Đăng ký tư vấn</CustomButton>
+        <CustomButton onClick={onOpenRegisterModal} p={"1px 10px"}>
+          Đăng ký tư vấn
+        </CustomButton>
+
         <Center mt={3}>
           <Image
+            borderRadius="full"
+            boxSize="150px"
             display={"inline-block"}
             cursor={"pointer"}
             src={"/assets/imgs/icon-advisory.gif"}
             w={"60px"}
             height={"60px"}
-            onClick={onOpen}
+            onClick={onOpenRegisterModal}
           />
         </Center>
       </Box>
-
-      <RegisterModal isOpen={isOpen} onClose={onClose} />
     </>
   );
 };
 
-export default RegisterBox;
+export default RegisterBtn;

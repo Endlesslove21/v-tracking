@@ -10,7 +10,7 @@ import {
 import { IoMdMail } from "react-icons/io";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { BsQuestionCircleFill } from "react-icons/bs";
-import Wrapper from "@/components/elements/Wrapper";
+import Wrapper from "@/components/elements/wrapper";
 import NavList from "@/components/elements/nav-list";
 
 const HeaderTop = () => {

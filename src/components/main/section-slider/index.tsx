@@ -1,8 +1,8 @@
-import Wrapper from "@/components/elements/Wrapper";
+import Wrapper from "@/components/elements/wrapper";
 import CustomButton from "@/components/elements/button";
 import HeadingTitle from "@/components/elements/heading";
-import RegisterModal from "@/components/header/modal/RegisterModal";
-import VideoModal from "@/components/header/modal/VideoModal";
+import RegisterModal from "@/components/elements/modal/RegisterModal";
+import VideoModal from "@/components/elements/modal/VideoModal";
 import {
   Box,
   Flex,

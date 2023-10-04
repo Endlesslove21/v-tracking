@@ -1,13 +1,16 @@
 import { useEffect, useContext } from "react";
 import NavList from "@/components/elements/nav-list";
-import { NAV_MENU_DATA } from "@/components/configs/NAV_MENU_DATA";
+import { NAV_MENU_DATA } from "@/configs/NAV_MENU_DATA";
 import { Box, useMediaQuery } from "@chakra-ui/react";
 import getCurrentSectionInView from "@/utilities/getCurrentSectionInView";
 import { SectionContext } from "@/context/ScrollSectionContext";
 
-const NavMenu = () => {
-  const { sectionId, setSectionId, onCloseMobileNavMenu } =
-    useContext(SectionContext);
+type Props = {
+  onCloseMobileNavMenu?: () => void;
+};
+
+const NavMenu = ({ onCloseMobileNavMenu }: Props) => {
+  const { sectionId, setSectionId } = useContext(SectionContext);
   const [isSmallerThan995] = useMediaQuery("(max-width: 995px)");
 
   useEffect(() => {
@@ -28,6 +31,8 @@ const NavMenu = () => {
         top: sectionClick.offsetTop - 70,
         behavior: "smooth",
       });
+    }
+    if (onCloseMobileNavMenu) {
       onCloseMobileNavMenu();
     }
   };

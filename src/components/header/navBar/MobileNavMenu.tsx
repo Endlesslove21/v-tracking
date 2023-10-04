@@ -1,24 +1,17 @@
-import {
-  Box,
-  Center,
-  Collapse,
-  Flex,
-  Icon,
-  Link,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Center, Flex, Icon, Link, Text } from "@chakra-ui/react";
 import NavMenu from "./NavMenu";
 import CustomButton from "@/components/elements/button";
 import { IoMdMail } from "react-icons/io";
 import { FaPhoneVolume } from "react-icons/fa6";
 type Props = {
   onClick?: () => void;
+  onClose: () => void;
 };
 
-const MobileNavMenu = ({ onClick }: Props) => {
+const MobileNavMenu = ({ onClick, onClose }: Props) => {
   return (
     <Box flexDir={"column"} bgColor={"#fff"} w={"100%"} h={"100vh"}>
-      <NavMenu />
+      <NavMenu onCloseMobileNavMenu={onClose} />
       <Center>
         <CustomButton onClick={onClick} mt={10} p={"12px 14px"} w={"150px"}>
           Đăng nhập

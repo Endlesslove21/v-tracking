@@ -15,13 +15,23 @@ import {
   Text,
   Textarea,
 } from "@chakra-ui/react";
-
+import { useState } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 type Props = {
   isOpen: boolean;
   onClose: () => void;
 };
 
 const RegisterModal = ({ isOpen, onClose }: Props) => {
+  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [note, setNote] = useState<string>("");
+  const handleChangeRecapcha = (value: string | null) => {};
+
+  const handleSubmitRegisterForm = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <Modal onClose={onClose} isOpen={isOpen} isCentered>
       <ModalOverlay />
@@ -37,7 +47,7 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
           _hover={{ color: "#ccc" }}
         />
         <ModalBody>
-          <form>
+          <form onSubmit={handleSubmitRegisterForm}>
             <Flex flexDir={{ base: "column", sm: "row" }} gap={3}>
               <FormControl>
                 <FormLabel>
@@ -49,8 +59,10 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
                 <Input
                   size={"sm"}
                   placeholder="Nhập số điện thoại"
-                  type="number"
+                  type="tel"
                   variant={"solid"}
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
                 />
               </FormControl>
               <FormControl>
@@ -61,31 +73,6 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
                   placeholder="Nhập email"
                   type="email"
                 />
-              </FormControl>
-            </Flex>
-            <Flex mt={5}>
-              <FormControl>
-                <FormLabel>
-                  Mã xác nhận{" "}
-                  <Text as={"span"} color={"#f00"}>
-                    (*)
-                  </Text>
-                </FormLabel>
-                <Flex flexDir={{ base: "column", sm: "row" }} gap={3}>
-                  <Input
-                    size={"sm"}
-                    readOnly
-                    defaultValue={"12311ÂF"}
-                    type="text"
-                    variant={"solid"}
-                  />
-                  <Input
-                    size={"sm"}
-                    placeholder="Nhập mã xác nhận"
-                    type="text"
-                    variant={"solid"}
-                  />
-                </Flex>
               </FormControl>
             </Flex>
 
@@ -106,8 +93,23 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
                 />
               </FormControl>
             </Flex>
+
+            <Flex mt={5}>
+              <FormControl>
+                <Flex
+                  w={"100%"}
+                  flexDir={{ base: "column", sm: "row" }}
+                  gap={3}
+                >
+                  <ReCAPTCHA
+                    sitekey={import.meta.env.VITE_RECAPCHA_SITE_KEY}
+                    onChange={handleChangeRecapcha}
+                  />
+                </Flex>
+              </FormControl>
+            </Flex>
             <Center mt={5}>
-              <CustomButton py={2} px={6}>
+              <CustomButton type="submit" py={2} px={6}>
                 Gửi liên hệ
               </CustomButton>
             </Center>

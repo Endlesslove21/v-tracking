@@ -1,13 +1,19 @@
 import { PropsWithChildren } from "react";
-import { BoxProps, Flex, Text } from "@chakra-ui/react";
-type Props = PropsWithChildren<BoxProps> & {
+import {
+  BoxProps,
+  Flex,
+  Text,
+  ButtonProps as ChakraButtonProps,
+} from "@chakra-ui/react";
+
+type Props = PropsWithChildren<BoxProps & ChakraButtonProps> & {
   onClick?: () => void;
 };
 
-const CustomButton = ({ children, onClick, ...BoxProps }: Props) => {
+const CustomButton = ({ children, onClick, ...buttonProps }: Props) => {
   return (
     <Flex
-      {...BoxProps}
+      {...buttonProps}
       onClick={onClick}
       as="button"
       justifyContent={"center"}

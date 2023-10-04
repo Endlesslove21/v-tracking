@@ -1,7 +1,6 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
-  Collapse,
   Flex,
   Icon,
   Image,
@@ -9,29 +8,23 @@ import {
   useDisclosure,
   useMediaQuery,
 } from "@chakra-ui/react";
-import Wrapper from "@/components/elements/Wrapper";
+import Wrapper from "@/components/elements/wrapper";
 import CustomButton from "@/components/elements/button";
 import NavMenu from "./NavMenu";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
-import LoginModal from "../modal/LoginModal";
 import MobileNavMenu from "./MobileNavMenu";
-import { SectionContext } from "@/context/ScrollSectionContext";
+import DropdownMenu from "@/components/elements/dropdown-menu";
 
 const NavBar = () => {
+  const [isActive, setIsActive] = useState<boolean>(false);
   const [isScrolling, setIsScrolling] = useState<boolean>(false);
   const [isSmallerThan995, isLargerThan995, isSmallerThan1200] = useMediaQuery([
     "(max-width: 995px)",
     "(min-width: 995px)",
     "(max-width: 1200px)",
   ]);
-  const {
-    isOpen: isOpenLoginModal,
-    onClose: onCloseLoginModal,
-    onOpen: onOpenLoginModal,
-  } = useDisclosure();
-  const { isOpenMobileNavMenu, onToggleMobileNavMenu, onCloseMobileNavMenu } =
-    useContext(SectionContext);
+  const { onOpen } = useDisclosure();
   // handle navmenu bg to white color when scrolling down
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +39,12 @@ const NavBar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const handleCloseMobleNavMenu = () => {
+    setIsActive(false);
+  };
+  const handleOpenNavMenu = () => {
+    setIsActive(true);
+  };
 
   return (
     <>
@@ -75,7 +74,7 @@ const NavBar = () => {
             justifyContent={"space-between"}
           >
             <NavMenu />
-            <CustomButton onClick={onOpenLoginModal} ml={"60px"} w={"150px"}>
+            <CustomButton onClick={onOpen} ml={"60px"} w={"150px"}>
               Đăng nhập
             </CustomButton>
           </Flex>
@@ -83,23 +82,22 @@ const NavBar = () => {
           {/* responsive menu mobile button  */}
           {isSmallerThan995 && (
             <Icon
-              onClick={onToggleMobileNavMenu}
-              as={isOpenMobileNavMenu ? AiOutlineClose : RxHamburgerMenu}
+              onClick={isActive ? handleCloseMobleNavMenu : handleOpenNavMenu}
+              as={isActive ? AiOutlineClose : RxHamburgerMenu}
               boxSize={7}
               mb={1}
             />
           )}
         </Wrapper>
-
-        {/* show modal login */}
-        <LoginModal isOpen={isOpenLoginModal} onClose={onCloseLoginModal} />
-
         {/* show nav menu for mobile  */}
-
         <Box display={isLargerThan995 ? "none" : "block"}>
-          <Collapse in={isOpenMobileNavMenu}>
-            <MobileNavMenu onClick={onOpenLoginModal} />
-          </Collapse>
+          <DropdownMenu
+            sx={{ top: "auto" }}
+            isActive={isActive}
+            height={"100vh"}
+          >
+            <MobileNavMenu onClick={onOpen} onClose={handleCloseMobleNavMenu} />
+          </DropdownMenu>
         </Box>
       </Box>
     </>
