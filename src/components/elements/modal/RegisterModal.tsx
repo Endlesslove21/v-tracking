@@ -4,6 +4,7 @@ import {
   Center,
   Flex,
   FormControl,
+  FormErrorMessage,
   FormLabel,
   Input,
   Modal,
@@ -14,11 +15,17 @@ import {
   ModalOverlay,
   Text,
   Textarea,
+  ToastProvider,
   useToast,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
-import { useForm, SubmitHandler, FormProvider } from "react-hook-form";
+import {
+  useForm,
+  SubmitHandler,
+  FormProvider,
+  Controller,
+} from "react-hook-form";
 type Props = {
   isOpen: boolean;
   onClose: () => void;
@@ -30,11 +37,33 @@ interface RegisterFormData {
   note: string | null;
   capchaToken: string;
 }
+interface ToastContentProps {
+  content: string;
+}
+
+const ToastContent = ({ content }: ToastContentProps) => {
+  return (
+    <Box
+      bg={"second"}
+      p={"10px"}
+      borderRadius={"4px"}
+      fontSize={"13px"}
+      color={"white"}
+      fontWeight={"500"}
+    >
+      {content}
+    </Box>
+  );
+};
 
 const RegisterModal = ({ isOpen, onClose }: Props) => {
   const methods = useForm<RegisterFormData>();
   const toast = useToast();
-  const { register, handleSubmit } = methods;
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = methods;
 
   const onSubmitRegisterForm = (value: RegisterFormData) => {
     // async request which may result error
@@ -48,37 +77,38 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
   };
 
   const onError = (error: any) => {
-    if (error.phoneNumber) {
-      toast({
-        status: "error",
-        position: "top-right",
-        render: () => (
-          <Box bg={"red"} p={"10px 5px"} color={"white"}>
-            {error.phoneNumber.message}
-          </Box>
-        ),
-      });
+    switch (true) {
+      case !!error.phoneNumber:
+        toast({
+          position: "top-right",
+          status: "error",
+          render: () => <ToastContent content={error.phoneNumber.message} />,
+        });
+        break;
+      case !!error.email:
+        toast({
+          position: "top-right",
+          status: "error",
+          render: () => <ToastContent content={error.email.message} />,
+        });
+        break;
+      case !!error.capchaToken:
+        toast({
+          position: "top-right",
+          status: "error",
+          render: () => <ToastContent content={error.capchaToken.message} />,
+        });
+        break;
+
+      default:
+        toast({
+          position: "top-right",
+          status: "success",
+          description: "Thanh cong!!",
+        });
+        break;
     }
-    if (error.email) {
-      toast({
-        status: "error",
-        render: () => (
-          <Box bg={"red"} color={"white"}>
-            {error.email.message}
-          </Box>
-        ),
-      });
-    }
-    if (error.capchaToken) {
-      toast({
-        status: "error",
-        render: () => (
-          <Box bg={"red"} color={"white"}>
-            {error.capchaToken.message}
-          </Box>
-        ),
-      });
-    }
+    console.log(error.capchaToken);
   };
 
   return (
@@ -168,11 +198,18 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
                     flexDir={{ base: "column", sm: "row" }}
                     gap={3}
                   >
-                    <ReCAPTCHA
-                      sitekey={import.meta.env.VITE_RECAPCHA_SITE_KEY}
-                      {...register("capchaToken", {
-                        required: "Hãy xác nhận mã capcha",
-                      })}
+                    <Controller
+                      name="capchaToken"
+                      control={methods.control}
+                      render={({ field }) => (
+                        <ReCAPTCHA
+                          {...field}
+                          sitekey={import.meta.env.VITE_RECAPCHA_SITE_KEY}
+                          onChange={(value) => {
+                            field.onChange(value);
+                          }}
+                        />
+                      )}
                     />
                   </Flex>
                 </FormControl>
