@@ -4,7 +4,6 @@ import {
   Center,
   Flex,
   FormControl,
-  FormErrorMessage,
   FormLabel,
   Input,
   Modal,
@@ -15,17 +14,12 @@ import {
   ModalOverlay,
   Text,
   Textarea,
-  ToastProvider,
   useToast,
 } from "@chakra-ui/react";
-import { useState } from "react";
+
 import ReCAPTCHA from "react-google-recaptcha";
-import {
-  useForm,
-  SubmitHandler,
-  FormProvider,
-  Controller,
-} from "react-hook-form";
+import { useForm, FormProvider, Controller } from "react-hook-form";
+import ToastContent from "../toast/ToastContent";
 type Props = {
   isOpen: boolean;
   onClose: () => void;
@@ -37,46 +31,27 @@ interface RegisterFormData {
   note: string | null;
   capchaToken: string;
 }
-interface ToastContentProps {
-  content: string;
-}
-
-const ToastContent = ({ content }: ToastContentProps) => {
-  return (
-    <Box
-      bg={"second"}
-      p={"10px"}
-      borderRadius={"4px"}
-      fontSize={"13px"}
-      color={"white"}
-      fontWeight={"500"}
-    >
-      {content}
-    </Box>
-  );
-};
 
 const RegisterModal = ({ isOpen, onClose }: Props) => {
   const methods = useForm<RegisterFormData>();
   const toast = useToast();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = methods;
+  const { register, handleSubmit } = methods;
 
   const onSubmitRegisterForm = (value: RegisterFormData) => {
-    // async request which may result error
-    try {
-      // await fetch()
-      console.log(value);
-    } catch (e) {
-      // handle your error
-      console.log("e123123");
-    }
+    toast({
+      position: "top-right",
+      render: () => (
+        <ToastContent
+          isSuccess={true}
+          content="Đăng ký tư vấn thành công. Chúng tôi sẽ liên hệ bạn trong thời gian sớm nhất!"
+        />
+      ),
+      status: "success",
+    });
+    console.log(value);
   };
 
-  const onError = (error: any) => {
+  const onSubmitRegisterFormError = (error: any) => {
     switch (true) {
       case !!error.phoneNumber:
         toast({
@@ -101,14 +76,8 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
         break;
 
       default:
-        toast({
-          position: "top-right",
-          status: "success",
-          description: "Thanh cong!!",
-        });
         break;
     }
-    console.log(error.capchaToken);
   };
 
   return (
@@ -127,7 +96,12 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
         />
         <ModalBody>
           <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(onSubmitRegisterForm, onError)}>
+            <form
+              onSubmit={handleSubmit(
+                onSubmitRegisterForm,
+                onSubmitRegisterFormError
+              )}
+            >
               <Flex flexDir={{ base: "column", sm: "row" }} gap={3}>
                 <FormControl>
                   <FormLabel>
@@ -146,6 +120,10 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
                         value: true,
                         message:
                           "Bạn hãy nhập số điện thoại để chúng tôi có thể liên hệ tư vấn!",
+                      },
+                      onChange: (e) => {
+                        const newValue = e.target.value.replace(/\s/g, "");
+                        e.target.value = newValue;
                       },
                       pattern: {
                         value: /^(0|\+84|84)?[1-9]\d{8,9}$/,
@@ -201,6 +179,7 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
                     <Controller
                       name="capchaToken"
                       control={methods.control}
+                      rules={{ required: "Vui lòng nhập xác nhận capcha" }}
                       render={({ field }) => (
                         <ReCAPTCHA
                           {...field}

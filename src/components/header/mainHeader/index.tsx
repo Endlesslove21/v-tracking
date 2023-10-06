@@ -1,8 +1,8 @@
-import ContactInfor from "@/components/header/headerTop";
-import NavBar from "@/components/header/navBar";
+import ContactInfor from "@/components/header/mainHeader/headerTop";
+import NavBar from "@/components/header/mainHeader/navBar";
 import { Box } from "@chakra-ui/react";
 
-const Header = () => {
+const MainHeader = () => {
   return (
     <Box
       as="header"
@@ -18,4 +18,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default MainHeader;

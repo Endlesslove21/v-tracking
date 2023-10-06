@@ -1,7 +1,11 @@
-import React from "react";
+import ResetPassForm from "@/components/main/section-resetPass";
 
 const ResetPass = () => {
-  return <div>ResetPass</div>;
+  return (
+    <>
+      <ResetPassForm />
+    </>
+  );
 };
 
 export default ResetPass;

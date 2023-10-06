@@ -1,4 +1,5 @@
 import MainLayout from "@/components/layouts/mainLayout";
+import SecondLayout from "@/components/layouts/secondLayout";
 import ErrorPage from "@/pages/ErrorPage";
 import Home from "@/pages/Home";
 import ResetPass from "@/pages/ResetPass";
@@ -17,6 +18,11 @@ export const router = createBrowserRouter([
         path: ROUTES.HOME,
         element: <Home />,
       },
+    ],
+  },
+  {
+    Component: SecondLayout,
+    children: [
       {
         path: ROUTES.RESET_PASS,
         element: <ResetPass />,

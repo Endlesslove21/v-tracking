@@ -2,6 +2,7 @@ import { Box, Text } from "@chakra-ui/react";
 import FooterDownload from "./FooterDownload";
 import Wrapper from "../elements/wrapper";
 import FooterBottom from "./FooterBottom";
+import Copyright from "./Copyright";
 
 const Footer = () => {
   return (
@@ -14,14 +15,10 @@ const Footer = () => {
         <FooterBottom />
       </Wrapper>
       {/* copy right */}
-      <Box
-        bg={"linear-gradient(270deg, #BA1318 0%, #E61A45 60.42%, #EE0000 100%)"}
-      >
-        <Text color="white" p={"10px 0 13px"} textAlign={"center"}>
-          © Copyright 2018 Tổng công ty giải pháp Doanh nghiệp - Tập đoàn Công
-          nghiệp - Viễn thông Quân đội
-        </Text>
-      </Box>
+      <Copyright
+        description="© Copyright 2018 Tổng công ty giải pháp Doanh nghiệp - Tập đoàn Công
+        nghiệp - Viễn thông Quân đội"
+      />
     </Box>
   );
 };

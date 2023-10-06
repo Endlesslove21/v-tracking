@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Header from "../../header";
-import Footer from "../../footer";
+import MainHeader from "@/components/header/mainHeader";
+import Footer from "@/components/footer";
 import { Outlet } from "react-router-dom";
 import { SectionContext } from "@/context/ScrollSectionContext";
 import ScrollTopBtn from "@/components/elements/fixedElements/ScrollTopBtn";
@@ -53,7 +53,7 @@ const MainLayout = ({ children }: Props) => {
   return (
     <>
       <SectionContext.Provider value={value}>
-        <Header />
+        <MainHeader />
         {children ? children : <Outlet />}
 
         <Footer />

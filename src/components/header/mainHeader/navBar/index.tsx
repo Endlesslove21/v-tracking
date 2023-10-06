@@ -15,6 +15,7 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { AiOutlineClose } from "react-icons/ai";
 import MobileNavMenu from "./MobileNavMenu";
 import DropdownMenu from "@/components/elements/dropdown-menu";
+import LoginModal from "@/components/elements/modal/LoginModal";
 
 const NavBar = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -24,8 +25,8 @@ const NavBar = () => {
     "(min-width: 995px)",
     "(max-width: 1200px)",
   ]);
-  const { onOpen } = useDisclosure();
-  // handle navmenu bg to white color when scrolling down
+  const { onOpen, isOpen, onClose } = useDisclosure();
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -100,6 +101,8 @@ const NavBar = () => {
           </DropdownMenu>
         </Box>
       </Box>
+
+      <LoginModal isOpen={isOpen} onClose={onClose} />
     </>
   );
 };
