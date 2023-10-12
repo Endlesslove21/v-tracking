@@ -6,6 +6,7 @@ import {
   Text,
   useMediaQuery,
 } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   imgIconUrl: string;
@@ -15,7 +16,7 @@ type Props = {
 
 const TargetUserBox = ({ imgIconUrl, title, contents }: Props) => {
   const [isLargerThan480] = useMediaQuery("(min-width: 480px)");
-
+  const { t } = useTranslation();
   return (
     <Box px={"15px"}>
       <Flex flexDir={{ base: "row", sm: "column" }}>
@@ -32,12 +33,12 @@ const TargetUserBox = ({ imgIconUrl, title, contents }: Props) => {
           display={"block"}
         />
         <Heading as="h3" my={"10px"} fontSize={"16px"}>
-          {title}
+          {t(`targetUsers.${title}`)}
         </Heading>
       </Flex>
       <Box>
         {contents.map((content) => (
-          <Text key={content}>{content}</Text>
+          <Text key={content}>{t(`targetUsers.${content}`)}</Text>
         ))}
       </Box>
     </Box>

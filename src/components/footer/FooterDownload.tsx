@@ -1,6 +1,8 @@
 import { Box, Flex, Heading, Image, Link } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 const FooterDownload = () => {
+  const { t } = useTranslation();
   return (
     <Box
       px={"15px"}
@@ -27,8 +29,7 @@ const FooterDownload = () => {
               mb={"20px"}
               fontWeight={"600"}
             >
-              Tăng trải nghiệm phần mềm <br />
-              V-Tracking trên thiết bị di động
+              {t("downloadTitle")}
             </Heading>
 
             <Flex>

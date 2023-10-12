@@ -4,6 +4,7 @@ import { NAV_MENU_DATA } from "@/configs/NAV_MENU_DATA";
 import { Box, useMediaQuery } from "@chakra-ui/react";
 import getCurrentSectionInView from "@/utilities/getCurrentSectionInView";
 import { SectionContext } from "@/context/ScrollSectionContext";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   onCloseMobileNavMenu?: () => void;
@@ -12,7 +13,7 @@ type Props = {
 const NavMenu = ({ onCloseMobileNavMenu }: Props) => {
   const { sectionId, setSectionId } = useContext(SectionContext);
   const [isSmallerThan995] = useMediaQuery("(max-width: 995px)");
-
+  const { t } = useTranslation();
   useEffect(() => {
     window.addEventListener("scroll", () => {
       const currentSectionId = getCurrentSectionInView();
@@ -86,7 +87,7 @@ const NavMenu = ({ onCloseMobileNavMenu }: Props) => {
               handleClickNavItem(item.id);
             }}
           >
-            {item.title}
+            {t(`${item.title}`)}
           </Box>
         </Box>
       ))}

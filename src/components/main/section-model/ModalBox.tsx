@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   imgIconUrl: string;
@@ -7,6 +8,8 @@ type Props = {
 };
 
 const ModalBox = ({ imgIconUrl, title, content }: Props) => {
+  const { t } = useTranslation();
+
   return (
     <Flex alignItems={"center"} p={"20px 10px"}>
       <Box
@@ -31,9 +34,9 @@ const ModalBox = ({ imgIconUrl, title, content }: Props) => {
           fontWeight={"600"}
           mb={"10px"}
         >
-          {title}
+          {t(`model.${title}`)}
         </Heading>
-        <Text>{content}</Text>
+        <Text>{t(`model.${content}`)}</Text>
       </Box>
     </Flex>
   );

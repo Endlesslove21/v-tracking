@@ -3,8 +3,10 @@ import Wrapper from "@/components/elements/wrapper";
 import HeadingTitle from "@/components/elements/heading";
 import { Box, Flex, Image } from "@chakra-ui/react";
 import ModalBox from "./ModalBox";
+import { useTranslation } from "react-i18next";
 
 const Models = () => {
+  const { t } = useTranslation();
   return (
     <Box
       bg={{
@@ -17,7 +19,7 @@ const Models = () => {
     >
       <Wrapper flexDir={"column"}>
         <HeadingTitle
-          title="Mô hình V-TRACKING"
+          title={t(`model.headingTitle`)}
           mb={{ base: "20px", lg: "40px" }}
         />
         <Flex flexDir={{ base: "column", lg: "row" }}>

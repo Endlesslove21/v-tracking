@@ -3,6 +3,8 @@ import CustomLink from "@/components/elements/link";
 import {
   Container,
   Flex,
+  FormControl,
+  FormErrorMessage,
   Heading,
   Input,
   Modal,
@@ -17,6 +19,7 @@ import {
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
 import ToastContent from "../toast/ToastContent";
+import { useTranslation } from "react-i18next";
 
 type Props = {
   isOpen: boolean;
@@ -34,6 +37,7 @@ const LoginModal = ({ isOpen, onClose }: Props) => {
     formState: { errors },
   } = useForm<LoginForm>();
   const toast = useToast();
+  const { t } = useTranslation();
   const onSubmitLoginForm = (value: LoginForm) => {};
   const onSubmitLoginFormError = (error: any) => {
     switch (true) {
@@ -61,7 +65,7 @@ const LoginModal = ({ isOpen, onClose }: Props) => {
 
       <ModalContent borderRadius={"10px"} p={0}>
         <ModalHeader>
-          <Heading className="modal-heading-text">Đăng nhập</Heading>
+          <Heading className="modal-heading-text">{t("login")}</Heading>
         </ModalHeader>
 
         <ModalCloseButton color={"#333"} _hover={{ color: "primary" }} />
@@ -71,30 +75,38 @@ const LoginModal = ({ isOpen, onClose }: Props) => {
             onSubmit={handleSubmit(onSubmitLoginForm, onSubmitLoginFormError)}
           >
             <Flex justifyContent={"center"} flexDir={"column"}>
-              <Input
-                _placeholder={{ fontSize: "14px" }}
-                type="text"
-                placeholder="Tên đăng nhập..."
-                mb={5}
-                py={2}
-                {...register("user", {
-                  required: "Vui lòng điền tên đăng nhập!",
-                })}
-                errorBorderColor={errors.user ? "second" : ""}
-              />
-              <Input
-                mb={5}
-                _placeholder={{ fontSize: "14px" }}
-                type="password"
-                placeholder="Mật khẩu..."
-                py={2}
-                {...register("password", {
-                  required: "Vui lòng nhập mật khẩu!",
-                })}
-              />
+              <FormControl isInvalid={!!errors.user} mb={5}>
+                <Input
+                  _placeholder={{ fontSize: "14px" }}
+                  type="text"
+                  placeholder={t("loginModal.userInputPlacehoder")}
+                  py={2}
+                  {...register("user", {
+                    required: t("loginModal.userInputErrorText"),
+                  })}
+                  errorBorderColor={errors.user ? "second" : ""}
+                />
+                {errors.user && (
+                  <FormErrorMessage>{errors.user.message}</FormErrorMessage>
+                )}
+              </FormControl>
+              <FormControl isInvalid={!!errors.password} mb={5}>
+                <Input
+                  _placeholder={{ fontSize: "14px" }}
+                  type="password"
+                  placeholder={t("loginModal.pwdInputPlaceholder")}
+                  py={2}
+                  {...register("password", {
+                    required: t("loginModal.pwdInputErrorText"),
+                  })}
+                />
+                {errors.password && (
+                  <FormErrorMessage>{errors.password.message}</FormErrorMessage>
+                )}
+              </FormControl>
               <Container centerContent>
                 <CustomButton type="submit" py={3} my={"15px"} width={"90%"}>
-                  ĐĂNG NHẬP
+                  {t("login")}
                 </CustomButton>
               </Container>
             </Flex>
@@ -112,7 +124,7 @@ const LoginModal = ({ isOpen, onClose }: Props) => {
               onClick={onClose}
               to={"/LostPassword"}
             >
-              <Text color={"#337ab7"}>Quên mật khẩu</Text>
+              <Text color={"#337ab7"}>{t("loginModal.forgotPass")}</Text>
             </CustomLink>
           </Flex>
         </ModalFooter>

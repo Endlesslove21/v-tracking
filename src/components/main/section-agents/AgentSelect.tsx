@@ -1,14 +1,30 @@
 import { AGENTS_DATA } from "@/configs/AGENTS_DATA";
 import { Box, Center, Flex, Grid, Icon, Text } from "@chakra-ui/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsChevronDown } from "react-icons/bs";
 import "./agents.css";
 import DropdownMenu from "@/components/elements/dropdown-menu";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 const AgentSelect = () => {
+  const { t } = useTranslation();
   const [isActive, setIsActive] = useState<boolean>(false);
   const [province, setProvince] = useState<string>("Tỉnh/ Thành phố");
   const [provinceId, setProvinceId] = useState<number | null>(null);
+
+  // Access the current language
+  useEffect(() => {
+    function changeDefaultProvince() {
+      if (i18next.language === "vietnamese") {
+        setProvince("Tỉnh/ Thành phố");
+      } else {
+        setProvince("Province/ City");
+      }
+    }
+
+    changeDefaultProvince();
+  }, [i18next.language]);
 
   return (
     <>
@@ -107,9 +123,7 @@ const AgentSelect = () => {
           ))}
         </Grid>
       ) : (
-        <Text textAlign={"center"}>
-          Vui lòng chọn Tỉnh/ Thành phố để tìm đại lý
-        </Text>
+        <Text textAlign={"center"}>{t("agents.description")}</Text>
       )}
     </>
   );

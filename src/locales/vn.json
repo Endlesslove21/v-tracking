@@ -1,0 +1,146 @@
+{
+  "headerTop": {
+    "assist": "Hỗ trợ kĩ thuật",
+    "contactPhone": "18008000 (nhánh 6)",
+    "consulting": "Tư vấn dịch vụ"
+  },
+  "navMenu": {
+    "features": "Tính năng",
+    "model": "Mô hình",
+    "users": "Đối tượng sử dụng",
+    "serviceCharge": "Phí dịch vụ",
+    "agents": "Đại lý"
+  },
+  "slider": {
+    "title": "HỆ THỐNG QUẢN LÝ VÀ GIÁM SÁT PHƯƠNG TIỆN VẬN TẢI V-TRACKING",
+    "subText": "Chỉ cần truy cập hệ thống từ các thiết bị có kết nối internet để giám sát hành trình và quản lý những chiếc xe của bạn",
+    "btnText": "Đăng ký nhận tư vấn miễn phí",
+    "video": "Video sản phẩm",
+    "introduction": "Giới thiệu dịch vụ V-tracking"
+  },
+  "login": "Đăng nhập",
+  "loginModal": {
+    "userInputPlacehoder": "Tên đăng nhập...",
+    "userInputErrorText": "Vui lòng điền tên đăng nhập!",
+    "pwdInputPlaceholder": "Mật khẩu...",
+    "pwdInputErrorText": "Vui lòng nhập mật khẩu!",
+    "forgotPass": "Quên mật khẩu"
+  },
+  "registerModal": {
+    "title": " Đăng ký nhận tư vấn miễn phí",
+    "phoneNumber": "Điện thoại",
+    "phoneNumberPlaceholder": "Nhập số điện thoại",
+    "phoneNumberErrorText": "Bạn hãy nhập số điện thoại để chúng tôi có thể tư vấn!",
+    "phoneNumberInValidErrorText": "Số điện thoại bạn nhập không hợp lệ",
+    "email": "Địa chỉ email",
+    "emailPlaceholder": "Nhập email",
+    "emailRequiredErrorText": "Vui lòng nhập email",
+    "emailInvalidErrorText": "Email bạn nhập không hợp lệ",
+    "content": "Nội dung liên hệ",
+    "contentPlaceholder": "Nhập nội dung",
+    "capchaTokenErrorText": "Vui lòng nhập xác nhận capcha",
+    "submitBtnText": "Gửi liên hệ"
+  },
+  "features": {
+    "headingTitle": "CHỨC NĂNG NỔI BẬT CỦA V-TRACKING",
+    "title": {
+      "Giám sát vị trí": "Giám sát vị trí",
+      "Giám sát hình ảnh & video": "Giám sát hình ảnh & video",
+      "Xem lại hành trình": "Xem lại hành trình",
+      "Cảnh cáo tức thời": "Cảnh cáo tức thời",
+      "Báo cáo đa dạng": "Báo cáo đa dạng"
+    },
+    "contents": {
+      "Vị trí hiện thời trên bản đồ số và trạng thái hoạt động tạm thời": "Vị trí hiện thời trên bản đồ số và trạng thái hoạt động tạm thời",
+      "Vận tốc, số km đi được, trạng thái đóng mở cửa, tắt mở máy, trạng thái điều hòa, thông tin đặt xe, ...": "Vận tốc, số km đi được, trạng thái đóng mở cửa, tắt mở máy, trạng thái điều hòa, thông tin đặt xe, ...",
+      "Hiển thị các cảnh cáo nóng như SOS, quá tốc độ, vi phạm thời gian lái xe liên tục, vi phạm thời gian lái xe trong ngày": "Hiển thị các cảnh cáo nóng như SOS, quá tốc độ, vi phạm thời gian lái xe liên tục, vi phạm thời gian lái xe trong ngày",
+      "Hình ảnh theo một khoảng thời gian": "Hình ảnh theo một khoảng thời gian",
+      "Xem trực tuyến video chất lượng cao không giới hạn dung lượng và thời gian": "Xem trực tuyến video chất lượng cao không giới hạn dung lượng và thời gian",
+      "Có thể xem cùng lúc nhiều camera của 1 xe trên màn hình": "Có thể xem cùng lúc nhiều camera của 1 xe trên màn hình",
+      "Giám sát và download hình ảnh theo một khoảng thời gian": "Giám sát và download hình ảnh theo một khoảng thời gian",
+      "Tần suất gửi ảnh 3 phút một lần": "Tần suất gửi ảnh 3 phút một lần",
+      "Xem lại video và ảnh với độ nét cao được lưu trên thiết bị hoặc lưu tại cloud": "Xem lại video và ảnh với độ nét cao được lưu trên thiết bị hoặc lưu tại cloud",
+      "Xem lại hành trình của xe trong khoảng thời gian nhất định (thời điểm, trạng thái, vị trí)": "Xem lại hành trình của xe trong khoảng thời gian nhất định (thời điểm, trạng thái, vị trí)",
+      "Vẽ lại hành trình trực quan trên bản đồ và xem với tốc độ xem đa dạng": "Vẽ lại hành trình trực quan trên bản đồ và xem với tốc độ xem đa dạng",
+      "Tính tổng quảng đường, tổng số lần dừng, thời gian dừng": "Tính tổng quảng đường, tổng số lần dừng, thời gian dừng",
+      "Có thể cảnh báo các trường hợp như SOS, quá tốc độ, vi phạm thời gian lái xe liên tục, vi phạm thời gian làm việc…": "Có thể cảnh báo các trường hợp như SOS, quá tốc độ, vi phạm thời gian lái xe liên tục, vi phạm thời gian làm việc…",
+      "Có thể cấu hình các ngưỡng cảnh báo cho chủ phương tiện qua SMS, Email": "Có thể cấu hình các ngưỡng cảnh báo cho chủ phương tiện qua SMS, Email",
+      "Đầy đủ báo cáo theo quy định mẫu của Bộ GTVT": "Đầy đủ báo cáo theo quy định mẫu của Bộ GTVT",
+      "Đếm hành trình di chuyển, báo cáo qua vùng, qua trạm thu phí,…": "Đếm hành trình di chuyển, báo cáo qua vùng, qua trạm thu phí,…",
+      "Đa dạng báo cáo với các loại thiết bị cảm biến như cảm biến nhiên liệu, cảm biến nhiệt độ,…": "Đa dạng báo cáo với các loại thiết bị cảm biến như cảm biến nhiên liệu, cảm biến nhiệt độ,…"
+    }
+  },
+  "model": {
+    "headingTitle": "Mô hình V-TRACKING",
+    "Hệ thống máy chủ dữ liệu": "Hệ thống máy chủ dữ liệu",
+    "Lưu trữ cơ sở dữ liệu của hệ thống. Các dữ liệu hành trình, hình ảnh, video của phương tiện được lưu trữ và xử lý tại đây": "Lưu trữ cơ sở dữ liệu của hệ thống. Các dữ liệu hành trình, hình ảnh, video của phương tiện được lưu trữ và xử lý tại đây",
+    "Tiếp nhận và xử lý các yêu cầu từ người dùng, phân tích, xử lý nghiệp vụ và trả kết quả cho người dùng": "Tiếp nhận và xử lý các yêu cầu từ người dùng, phân tích, xử lý nghiệp vụ và trả kết quả cho người dùng",
+    "Là các thiết bị giám sát hành trình, camera hành trình được gắn lên phương tiện của người dùng": "Là các thiết bị giám sát hành trình, camera hành trình được gắn lên phương tiện của người dùng",
+    "Hệ thống máy chủ ứng dụng": "Hệ thống máy chủ ứng dụng",
+    "Thuê bao giám sát hành trình": "Thuê bao giám sát hành trình"
+  },
+  "targetUsers": {
+    "headingTitle": "ĐỐI TƯỢNG SỬ DỤNG DỊCH VỤ",
+    "subTitle1": "Giám sát hành trình GPS ngày càng được sử dụng rộng rãi.",
+    "subTitle2": "V-Tracking là sản phẩm giúp giám sát và quản lý hành trình xe hiện đại và tiện lợi nhất. Phù hợp với:",
+    "Các đối tượng áp dụng theo Nghị định 86/2014/NĐ-CP, Nghị định 10/2020/NĐ-CP": "Các đối tượng áp dụng theo Nghị định 86/2014/NĐ-CP, Nghị định 10/2020/NĐ-CP",
+    "Xe ô tô kinh doanh vận tải hành khách theo tuyến cố định, xe buýt, xe tải,...": "Xe ô tô kinh doanh vận tải hành khách theo tuyến cố định, xe buýt, xe tải,...",
+    "Xe container, xe đầu kéo, xe vận tải hành khách từ 9 chỗ trở lên": "Xe container, xe đầu kéo, xe vận tải hành khách từ 9 chỗ trở lên",
+    "Doanh nghiệp cần quản lý hành trình, giám sát nhiên liệu phương tiện": "Doanh nghiệp cần quản lý hành trình, giám sát nhiên liệu phương tiện",
+    "Các doanh nghiệp lớn, tập đoàn, tổng công ty, ngân hàng, công ty Logistic, bưu chính...": "Các doanh nghiệp lớn, tập đoàn, tổng công ty, ngân hàng, công ty Logistic, bưu chính...",
+    "Các hợp tác xã, doanh nghiệp vừa và nhỏ có nhu cầu giám sát phương tiện vận tải": "Các hợp tác xã, doanh nghiệp vừa và nhỏ có nhu cầu giám sát phương tiện vận tải",
+    "Cá nhân muốn giám sát hành trình xe của mình": "Cá nhân muốn giám sát hành trình xe của mình",
+    "Xe cá nhân, xe cho thuê tự lái, ...": "Xe cá nhân, xe cho thuê tự lái, ..."
+  },
+  "serviceCharges": {
+    "title": "Phí dịch vụ",
+    "Thiết bị đọc RFID": "Thiết bị đọc RFID",
+    "Giá bán lẻ": "Giá bán lẻ",
+    "Đã bao gồm thuế VAT": "Đã bao gồm thuế VAT",
+    "Gói cước kèm thiết bị vTracking 4G": "Gói cước kèm thiết bị vTracking 4G",
+    "Gói VTR15T": "Gói VTR15T",
+    "15 tháng": "15 tháng",
+    "Gói VTR30T": "Gói VTR30T",
+    "30 tháng": "30 tháng",
+    "Gói VTR48T": "Gói VTR48T",
+    "48 tháng": "48 tháng",
+    "01 bộ thiết bị định vị 4G": "01 bộ thiết bị định vị 4G",
+    "01 thẻ sim 4G": "01 thẻ sim 4G",
+    "Khách hàng đăng ký mới": "Khách hàng đăng ký mới",
+    "Gói VTR_GH": "Gói VTR_GH",
+    "12 tháng": "12 tháng",
+    "Gói VTR24GH": "Gói VTR24GH",
+    "24 tháng": "24 tháng",
+    "Khách hàng đã sử dụng dịch vụ và cần gia hạn": "Khách hàng đã sử dụng dịch vụ và cần gia hạn",
+    "limit": "Thời hạn",
+    "PackageInclude": "Các gói cước bao gồm",
+    "users": "Đối tượng áp dụng",
+    "register": "Đăng ký",
+    "Gói cước gia hạn dịch vụ vTracking 4G": "Gói cước gia hạn dịch vụ vTracking 4G"
+  },
+  "register": "Đăng ký tư vấn",
+  "agents": {
+    "title": "ĐẠI LÝ",
+    "subTitle": "Hệ thống được trải dài khắp 63 tỉnh thành trên toàn quốc",
+    "description": "Vui lòng chọn Tỉnh/ Thành phố để tìm đại lý",
+    "city": "Tỉnh/ Thành phố"
+  },
+  "ourCustomer": {
+    "title": "KHÁCH HÀNG CỦA V-TRACKING",
+    "count": "Tổng số khách hàng",
+    "count2": "đang sử dụng dịch vụ",
+    "count3": "Tổng số thuê bao",
+    "count4": "đã kích hoạt dịch vụ",
+    "year": "Dịch vụ V-Tracking chính thức được cung cấp từ năm 2012.",
+    "guest": "Một số khách hàng tiêu biểu như sau:"
+  },
+  "downloadTitle": "Tăng trải nghiệm phần mềm V-Tracking trên thiết bị di động",
+  "companyInfor": {
+    "name": "VIETTEL TELECOMMUNICATION CORPORATION BRANCH OF MILITARY INDUSTRIAL - TELECOMMUNICATIONS GROUP",
+    "taxCode": "Mã số thuế: 0100109106-011 - Cục thuế TP Hà Nội",
+    "address": "No. 01 Giang Van Minh, Kim Ma ward, Ba Dinh district, Hanoi city",
+    "contact": "18008000 (branch 6)",
+    "contactBtn": "Gửi liên hệ"
+  },
+  "copyRight": "Hệ thống Quản lý và Giám sát phương tiện vận tải - Cơ quan chủ quản: Tập đoàn Công nghiệp - Viễn Thông Quân đội. Giấy phép số: 144/GP-BC do Bộ Thông tin - Truyền thông cấp ngày 18/04/2007"
+}

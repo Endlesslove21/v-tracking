@@ -16,6 +16,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import MobileNavMenu from "./MobileNavMenu";
 import DropdownMenu from "@/components/elements/dropdown-menu";
 import LoginModal from "@/components/elements/modal/LoginModal";
+import { useTranslation } from "react-i18next";
 
 const NavBar = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
@@ -26,7 +27,7 @@ const NavBar = () => {
     "(max-width: 1200px)",
   ]);
   const { onOpen, isOpen, onClose } = useDisclosure();
-
+  const { t } = useTranslation();
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -76,7 +77,7 @@ const NavBar = () => {
           >
             <NavMenu />
             <CustomButton onClick={onOpen} ml={"60px"} w={"150px"}>
-              Đăng nhập
+              {t("login")}
             </CustomButton>
           </Flex>
 

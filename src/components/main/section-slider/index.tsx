@@ -13,6 +13,7 @@ import {
   useMediaQuery,
 } from "@chakra-ui/react";
 import "./animationDisplay.css";
+import { useTranslation } from "react-i18next";
 
 const Slider = () => {
   const [isSmallerThan995] = useMediaQuery("max-width(995px)");
@@ -27,7 +28,7 @@ const Slider = () => {
     onClose: onCloseRegisterModal,
     onOpen: onOpenRegisterModal,
   } = useDisclosure();
-
+  const { t } = useTranslation();
   return (
     <Box
       bg={"url(/assets/imgs/banner-n.png) no-repeat center top"}
@@ -40,7 +41,7 @@ const Slider = () => {
           <HeadingTitle
             className="sliderBox animationDelay1"
             sx={{ textAlign: "left" }}
-            title="HỆ THỐNG QUẢN LÝ VÀ GIÁM SÁT PHƯƠNG TIỆN VẬN TẢI V-TRACKING"
+            title={t("slider.title")}
           />
           <Text
             className="sliderBox animationDelay2"
@@ -48,8 +49,7 @@ const Slider = () => {
             mb={"30px"}
             pr={"50px"}
           >
-            Chỉ cần truy cập hệ thống từ các thiết bị có kết nối internet để
-            giám sát hành trình và quản lý những chiếc xe của bạn
+            {t("slider.subText")}
           </Text>
 
           <CustomButton
@@ -59,7 +59,7 @@ const Slider = () => {
             py={2}
             mb={"20px"}
           >
-            Đăng ký nhận tư vấn miễn phí
+            {t("slider.btnText")}
           </CustomButton>
           <Flex className="sliderBox animationDelay4">
             <Box
@@ -81,7 +81,7 @@ const Slider = () => {
                 display={"inline-block"}
                 ml={1}
               >
-                Video Sản Phẩm
+                {t("slider.video")}
               </Text>
             </Box>
           </Flex>
@@ -98,7 +98,7 @@ const Slider = () => {
                 src="/assets/imgs/thongtin-n.png"
               />
               <Text as={"span"} display={"inline-block"} ml={1}>
-                Giới thiệu dịch vụ V-Tracking
+                {t("slider.introduction")}
               </Text>
             </Box>
           </Link>

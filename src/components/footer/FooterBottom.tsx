@@ -7,31 +7,28 @@ import { FaPhoneVolume } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import CustomButton from "../elements/button";
 import { SectionContext } from "@/context/ScrollSectionContext";
+import { useTranslation } from "react-i18next";
 
 const FooterBottom = () => {
   const { onToggleRegisterModal } = useContext(SectionContext);
+  const { t } = useTranslation();
   return (
     <Box mt="80px" mb="50px">
       <Wrapper px={"15px"} flexDir={"column"}>
         <Flex mx={{ lg: "-15px" }} flexDir={{ base: "column", lg: "row" }}>
           <Box w={{ base: "100%", lg: "75%" }}>
             <Heading fontSize={"16px"} as={"h3"} lineHeight={"24px"}>
-              TỔNG CÔNG TY VIỄN THÔNG VIETTEL
-              <br /> CHI NHÁNH TẬP ĐOÀN CÔNG NGHIỆP - VIỄN THÔNG QUÂN ĐỘI
+              {t("companyInfor.name")}
             </Heading>
-            <Text py={"10px"}>
-              Mã số thuế: 0100109106-011 – Cục thuế TP Hà Nội
-            </Text>
+            <Text py={"10px"}>{t("companyInfor.taxCode")}</Text>
             <NavList>
               <Box as="li" display={"flex"} gap={1} py={"7px"}>
                 <Icon boxSize={6} alignSelf={"center"} as={IoLocation} />
-                <Text>
-                  Số 01 Giang Văn Minh, phường Kim Mã, quận Ba Đình, TP Hà Nội
-                </Text>
+                <Text>{t("companyInfor.address")}</Text>
               </Box>
               <Box as="li" display={"flex"} gap={1} py={"7px"}>
                 <Icon boxSize={5} alignSelf={"center"} as={FaPhoneVolume} />
-                <Text>18008000 (nhánh 6)</Text>
+                <Text> {t("companyInfor.contact")}</Text>
               </Box>
               <Box as="li" display={"flex"} gap={1} py={"7px"}>
                 <Icon boxSize={6} alignSelf={"center"} as={MdEmail} />
@@ -58,7 +55,7 @@ const FooterBottom = () => {
               w={"150px"}
               onClick={onToggleRegisterModal}
             >
-              Gửi liên hệ
+              {t("companyInfor.contactBtn")}
             </CustomButton>
           </Box>
         </Flex>

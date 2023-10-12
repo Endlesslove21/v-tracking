@@ -1,20 +1,15 @@
-import {
-  Box,
-  Flex,
-  Icon,
-  Image,
-  Link,
-  Text,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { Box, Flex, Icon, Link, Text, useMediaQuery } from "@chakra-ui/react";
 import { IoMdMail } from "react-icons/io";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { BsQuestionCircleFill } from "react-icons/bs";
 import Wrapper from "@/components/elements/wrapper";
-import NavList from "@/components/elements/nav-list";
+import { useTranslation } from "react-i18next";
+import LanguageSelection from "../../components/LanguageSelection";
 
 const HeaderTop = () => {
   const [isLargerThan995] = useMediaQuery("(min-width: 995px)");
+  const { t } = useTranslation();
+
   return (
     <Box
       bg={"white"}
@@ -48,9 +43,9 @@ const HeaderTop = () => {
           >
             <Flex gap={1}>
               <Icon boxSize={5} as={FaPhoneVolume} />
-              <Text as={"span"}> Hỗ trợ kĩ thuật: </Text>
+              <Text as={"span"}> {t(`headerTop.assist`)} </Text>
               <Text fontWeight={"bold"} as={"span"}>
-                18008000 (nhánh 6)
+                {t("headerTop.contactPhone")}
               </Text>
             </Flex>
           </Link>
@@ -61,7 +56,7 @@ const HeaderTop = () => {
           >
             <Flex gap={1}>
               <Icon boxSize={5} as={BsQuestionCircleFill} />
-              <Text as={"span"}> Tư vấn dịch vụ: </Text>
+              <Text as={"span"}> {t("headerTop.consulting")}: </Text>
               <Text fontWeight={"bold"} as={"span"}>
                 18008168
               </Text>
@@ -69,21 +64,7 @@ const HeaderTop = () => {
           </Link>
         </Flex>
 
-        <NavList display={"flex"} listStyleType={"none"}>
-          <Box as="li" mr={3}>
-            <Link>
-              <Image src={"/assets/imgs/languages/english.png"} alt="english" />
-            </Link>
-          </Box>
-          <Box as="li">
-            <Link>
-              <Image
-                src={"/assets/imgs/languages/vietnamese.png"}
-                alt="vietnamese"
-              />
-            </Link>
-          </Box>
-        </NavList>
+        <LanguageSelection textStyle={{ color: "primary" }} />
       </Wrapper>
     </Box>
   );

@@ -15,14 +15,14 @@ const baseStyle = definePartsStyle({
   },
 });
 
-const sm = defineStyle({
+const md = defineStyle({
   fontSize: "14px",
   px: "12px !important",
   py: "6px",
   h: "44px",
 });
 const sizes = {
-  sm: definePartsStyle({ field: sm, addon: sm }),
+  md: definePartsStyle({ field: md, addon: md }),
 };
 
 const solid = definePartsStyle({

@@ -3,8 +3,11 @@ import FooterDownload from "./FooterDownload";
 import Wrapper from "../elements/wrapper";
 import FooterBottom from "./FooterBottom";
 import Copyright from "./Copyright";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <Box
       as="footer"
@@ -15,10 +18,7 @@ const Footer = () => {
         <FooterBottom />
       </Wrapper>
       {/* copy right */}
-      <Copyright
-        description="© Copyright 2018 Tổng công ty giải pháp Doanh nghiệp - Tập đoàn Công
-        nghiệp - Viễn thông Quân đội"
-      />
+      <Copyright description={t("copyRight")} />
     </Box>
   );
 };

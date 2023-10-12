@@ -4,13 +4,14 @@ import { Box, BoxProps, Center, Heading } from "@chakra-ui/layout";
 import { PropsWithChildren } from "react";
 import "./scrollbar.css";
 import { SectionContext } from "@/context/ScrollSectionContext";
+import { useTranslation } from "react-i18next";
 type Props = PropsWithChildren<BoxProps> & {
   title: string;
 };
 
 const ServiceChargeBox = ({ title, children, ...BoxProps }: Props) => {
   const { onToggleRegisterModal } = useContext(SectionContext);
-
+  const { t } = useTranslation();
   return (
     <Box
       overflowY={"hidden"}
@@ -33,7 +34,7 @@ const ServiceChargeBox = ({ title, children, ...BoxProps }: Props) => {
         pb={6}
         textAlign={"center"}
       >
-        {title}
+        {t(`serviceCharges.${title}`)}
       </Heading>
       <Box
         className="custom-scrollbar"
@@ -46,7 +47,7 @@ const ServiceChargeBox = ({ title, children, ...BoxProps }: Props) => {
       </Box>
       <Center mb={10}>
         <CustomButton onClick={onToggleRegisterModal} w={"30%"} py={2}>
-          Đăng ký
+          {t("serviceCharges.register")}
         </CustomButton>
       </Center>
     </Box>

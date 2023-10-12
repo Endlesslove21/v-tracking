@@ -2,35 +2,37 @@ import { OUR_CUSTOMERS_DATA } from "@/configs/OUR_CUSTOMERS_DATA";
 import Wrapper from "@/components/elements/wrapper";
 import HeadingTitle from "@/components/elements/heading";
 import { Image } from "@chakra-ui/image";
-import { Box, Flex, Grid, HStack, Heading, Text } from "@chakra-ui/layout";
+import { Box, Flex, Grid, Text } from "@chakra-ui/layout";
 import OurCustomersBox from "./OurCustomersBox";
+import { useTranslation } from "react-i18next";
 
 const OurCustomers = () => {
+  const { t } = useTranslation();
   return (
     <Box as="section" py={"70px"}>
       <Wrapper px={"15px"} flexDir={"column"}>
-        <HeadingTitle mb={"40px"} title="KHÁCH HÀNG CỦA V-TRACKING" />
+        <HeadingTitle mb={"40px"} title={t("ourCustomer.title")} />
         <Flex flexDir={{ base: "column", lg: "row" }} mx={"-15px"}>
           <OurCustomersBox
             ml={{ base: 0, lg: "16.67%" }}
             customerAmount={52000}
           >
             <Text>
-              Tổng số khách hàng <br /> đang sử dụng dịch vụ
+              {t("ourCustomer.count")} <br /> {t("ourCustomer.count2")}
             </Text>
           </OurCustomersBox>
           <OurCustomersBox ml={{ base: 0, lg: "8.33%" }} customerAmount={68000}>
             <Text>
-              Tổng số thuê bao
+              {t("ourCustomer.count3")}
               <br />
-              đã kích hoạt dịch vụ
+              {t("ourCustomer.count4")}
             </Text>
           </OurCustomersBox>
         </Flex>
         <Text mt={2} textAlign={"center"}>
-          Dịch vụ V-Tracking chính thức được cung cấp từ năm 2012.
+          {t("ourCustomer.year")}
           <br />
-          Một số khách hàng tiêu biểu như sau:
+          {t("ourCustomer.guest")}
         </Text>
         <Grid
           mt={10}

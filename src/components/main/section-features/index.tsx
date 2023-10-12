@@ -16,8 +16,10 @@ import {
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { useMediaQuery } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
 const Features = () => {
   const [selectedTabId, setSelectedTabId] = useState<number>(1);
+  const { t } = useTranslation();
   const [isLargerThan995] = useMediaQuery("(min-width: 995px)");
   return (
     <Wrapper
@@ -26,7 +28,7 @@ const Features = () => {
       py={{ base: "30px", lg: "70px" }}
       flexDir={"column"}
     >
-      <HeadingTitle title="CHỨC NĂNG NỔI BẬT CỦA V-TRACKING" />
+      <HeadingTitle title={t("features.headingTitle")} />
 
       <Tabs variant={"unstyled"}>
         <TabList borderBottom={"1px solid #ccc"}>
@@ -72,7 +74,7 @@ const Features = () => {
                       color={selectedTabId == tab.id ? "#555" : "primary"}
                       fontWeight={"bold"}
                     >
-                      {tab.title}
+                      {t(`features.title.${tab.title}`)}
                     </Text>
                   )}
                 </Box>
@@ -94,12 +96,12 @@ const Features = () => {
                   p={"0 15px"}
                 >
                   <Heading mb={"20px"} as={"h3"} fontSize={"20px"}>
-                    {item.title}
+                    {t(`features.title.${item.title}`)}
                   </Heading>
                   <NavList ml={"20px"}>
                     {item.contents.map((content) => (
                       <Box as="li" pb={"20px"} key={content}>
-                        <Text>{content}</Text>
+                        <Text> {t(`features.contents.${content}`)}</Text>
                       </Box>
                     ))}
                   </NavList>

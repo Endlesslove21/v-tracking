@@ -65,7 +65,7 @@ export const FEATURES_TAB_DATA: FeatureTab[] = [
     title: "Báo cáo đa dạng",
     contents: [
       "Đầy đủ báo cáo theo quy định mẫu của Bộ GTVT",
-      "Các báo cáo đa dạng khác theo nghiệp vụ của từng doanh nghiệp, tổ chức: đếm hành trình di chuyển, báo cáo qua vùng, qua trạm thu phí,…",
+      "Đếm hành trình di chuyển, báo cáo qua vùng, qua trạm thu phí,…",
       "Đa dạng báo cáo với các loại thiết bị cảm biến như cảm biến nhiên liệu, cảm biến nhiệt độ,…",
     ],
     contentImgUrl: "/assets/imgs/features/feature_banner-left5.png",

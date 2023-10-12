@@ -1,0 +1,147 @@
+{
+  "headerTop": {
+    "assist": "Assistance Technique",
+    "contactPhone": "18008000 (line 6)",
+    "consulting": "Consulting Services"
+  },
+
+  "navMenu": {
+    "features": "Features",
+    "model": "Model",
+    "users": "Users",
+    "serviceCharge": "Service Charge",
+    "agents": "Agents"
+  },
+  "login": "Login",
+  "slider": {
+    "title": "V-TRACKING VEHICLE MANAGEMENT AND MONITORING SYSTEM",
+    "subText": "Just access the system from internet-connected devices to monitor your journey and manage your vehicles",
+    "btnText": "Sign up for a free consultation",
+    "video": "Product Video",
+    "introduction": "About V-tracking system"
+  },
+  "loginModal": {
+    "userInputPlacehoder": "Enter username...",
+    "userInputErrorText": "Please enter your username to login!",
+    "pwdInputPlaceholder": "Enter password...",
+    "pwdInputErrorText": "Please enter your password!",
+    "forgotPass": "Forgot password"
+  },
+  "registerModal": {
+    "title": "Registering for consultation",
+    "phoneNumber": "Phone",
+    "phoneNumberPlaceholder": "Enter your phone number",
+    "phoneNumberErrorText": "Please enter your phone number so we can advise!",
+    "phoneNumberInValidErrorText": "Your phone number is invalid!",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "emailRequiredErrorText": "Please enter your email!",
+    "emailInvalidErrorText": "Your email is invalid!",
+    "content": "Content",
+    "contentPlaceholder": "Enter your content",
+    "capchaTokenErrorText": "Please confirm capcha!",
+    "submitBtnText": "Submit"
+  },
+  "features": {
+    "headingTitle": "OUTSTANDING FUNCTIONS OF V-TRACKING",
+    "title": {
+      "Giám sát vị trí": "Location monitoring",
+      "Giám sát hình ảnh & video": "Image & video monitoring",
+      "Xem lại hành trình": "Review the itinerary",
+      "Cảnh cáo tức thời": "Immediate warning",
+      "Báo cáo đa dạng": "Diversity reports"
+    },
+    "contents": {
+      "Vị trí hiện thời trên bản đồ số và trạng thái hoạt động tạm thời": "Current location on digital map and temporary operating status",
+      "Vận tốc, số km đi được, trạng thái đóng mở cửa, tắt mở máy, trạng thái điều hòa, thông tin đặt xe, ...": "Speed, number of kilometers traveled, door opening and closing status, engine on/off status, air conditioning status, car booking information,...",
+      "Hiển thị các cảnh cáo nóng như SOS, quá tốc độ, vi phạm thời gian lái xe liên tục, vi phạm thời gian lái xe trong ngày": "Displays hot warnings such as SOS, speeding, continuous driving time violations, daily driving time violations",
+      "Hình ảnh theo một khoảng thời gian": "Images over a period of time",
+      "Xem trực tuyến video chất lượng cao không giới hạn dung lượng và thời gian": "Watch high quality videos online without limit on size and time",
+      "Có thể xem cùng lúc nhiều camera của 1 xe trên màn hình": "Multiple cameras of one vehicle can be viewed on the screen at the same time",
+      "Giám sát và download hình ảnh theo một khoảng thời gian": "Monitor and download images over a period of time",
+      "Tần suất gửi ảnh 3 phút một lần": "Frequency of sending photos every 3 minutes",
+      "Xem lại video và ảnh với độ nét cao được lưu trên thiết bị hoặc lưu tại cloud": "Review videos and photos in high definition saved on the device or stored in the cloud",
+      "Xem lại hành trình của xe trong khoảng thời gian nhất định (thời điểm, trạng thái, vị trí)": "Review the vehicle's journey over a certain period of time (time, status, location)",
+      "Vẽ lại hành trình trực quan trên bản đồ và xem với tốc độ xem đa dạng": "Redraw your itinerary visually on a map and view it at a variety of viewing speeds",
+      "Tính tổng quảng đường, tổng số lần dừng, thời gian dừng": "Calculate total distance, total number of stops, and stop time",
+      "Có thể cảnh báo các trường hợp như SOS, quá tốc độ, vi phạm thời gian lái xe liên tục, vi phạm thời gian làm việc…": "Can warn of cases such as SOS, speeding, continuous driving time violations, working time violations...",
+      "Có thể cấu hình các ngưỡng cảnh báo cho chủ phương tiện qua SMS, Email": "Warning thresholds can be configured for vehicle owners via SMS and Email",
+      "Đầy đủ báo cáo theo quy định mẫu của Bộ GTVT": "Full report according to sample regulations of the Ministry of Transport",
+      "Đếm hành trình di chuyển, báo cáo qua vùng, qua trạm thu phí,…": "Counting travel journeys, reporting across regions, through toll stations,...",
+      "Đa dạng báo cáo với các loại thiết bị cảm biến như cảm biến nhiên liệu, cảm biến nhiệt độ,…": "Diverse reports with different types of sensor devices such as fuel sensors, temperature sensors, etc."
+    }
+  },
+  "model": {
+    "headingTitle": "V-tracking model",
+    "Hệ thống máy chủ dữ liệu": "Data server system",
+    "Lưu trữ cơ sở dữ liệu của hệ thống. Các dữ liệu hành trình, hình ảnh, video của phương tiện được lưu trữ và xử lý tại đây": "Stores the system's database. The vehicle's journey data, images, and videos are stored and processed here",
+    "Tiếp nhận và xử lý các yêu cầu từ người dùng, phân tích, xử lý nghiệp vụ và trả kết quả cho người dùng": "Receive and process requests from users, analyze, process operations and return results to users",
+    "Là các thiết bị giám sát hành trình, camera hành trình được gắn lên phương tiện của người dùng": "As journey monitoring devices, dash cams are mounted on the user's vehicle",
+    "Hệ thống máy chủ ứng dụng": "Application server system",
+    "Thuê bao giám sát hành trình": "Subscribe to monitor the journey"
+  },
+  "targetUsers": {
+    "headingTitle": "SERVICE USERS",
+    "subTitle1": "GPS journey monitoring is increasingly widely used.",
+    "subTitle2": "V-Tracking is the most modern and convenient product to help monitor and manage vehicle journeys. Suitable for:",
+    "Các đối tượng áp dụng theo Nghị định 86/2014/NĐ-CP, Nghị định 10/2020/NĐ-CP": "Subjects of application according to Decree 86/2014/ND-CP, Decree 10/2020/ND-CP",
+    "Xe ô tô kinh doanh vận tải hành khách theo tuyến cố định, xe buýt, xe tải,...": "Cars for passenger transport business on fixed routes, buses, trucks,...",
+    "Xe container, xe đầu kéo, xe vận tải hành khách từ 9 chỗ trở lên": "Container trucks, tractors, passenger vehicles with 9 seats or more",
+    "Doanh nghiệp cần quản lý hành trình, giám sát nhiên liệu phương tiện": "Businesses need to manage journeys and monitor vehicle fuel",
+    "Các doanh nghiệp lớn, tập đoàn, tổng công ty, ngân hàng, công ty Logistic, bưu chính...": "Large businesses, corporations, corporations, banks, logistics companies, postal companies...",
+    "Các hợp tác xã, doanh nghiệp vừa và nhỏ có nhu cầu giám sát phương tiện vận tải": "Cooperatives and small and medium-sized enterprises have a need to monitor means of transport",
+    "Cá nhân muốn giám sát hành trình xe của mình": "Individuals want to monitor their vehicle journey",
+    "Xe cá nhân, xe cho thuê tự lái, ...": "Personal cars, self-driving rental cars,..."
+  },
+  "serviceCharges": {
+    "title": "Service Charges",
+    "Thiết bị đọc RFID": "RFID reader device",
+    "Giá bán lẻ": "Retail price",
+    "Đã bao gồm thuế VAT": "VAT included",
+    "Gói cước kèm thiết bị vTracking 4G": "Package includes vTracking 4G device",
+    "Gói VTR15T": "VTR15T package",
+    "15 tháng": "15 months",
+    "Gói VTR30T": "VTR30T package",
+    "30 tháng": "30 months",
+    "Gói VTR48T": "VTR48T package",
+    "48 tháng": "48 months",
+    "01 bộ thiết bị định vị 4G": "01 set of 4G positioning device",
+    "01 thẻ sim 4G": "01 4G sim card",
+    "Khách hàng đăng ký mới": "New registered customer",
+    "Gói VTR_GH": "VTR_GH package",
+    "12 tháng": "12 months",
+    "Gói VTR24GH": "VTR24GH package",
+    "24 tháng": "24 months",
+    "Khách hàng đã sử dụng dịch vụ và cần gia hạn": "The customer has used the service and needs to renew",
+    "limit": "Duration",
+    "PackageInclude": "Packages include:",
+    "users": "Applicable object",
+    "register": "Register",
+    "Gói cước gia hạn dịch vụ vTracking 4G": "vTracking 4G service renewal package"
+  },
+  "register": "Sign up for consultation",
+  "agents": {
+    "title": "agents",
+    "subTitle": "The system is spread across 63 provinces and cities nationwide",
+    "description": "Please select Province/City to find an agent",
+    "city": "Province/ City"
+  },
+  "ourCustomer": {
+    "title": "V-TRACKING CUSTOMERS",
+    "count": "Total number of customers",
+    "count2": "using the service",
+    "count3": "Total number of subscribers",
+    "count4": "who have activated the service",
+    "year": "Official V-Tracking service has been provided since 2012.",
+    "guest": "Some typical customers are as follows:"
+  },
+  "downloadTitle": "Increase V-Tracking software experience on mobile devices",
+  "companyInfor": {
+    "name": "VIETTEL TELECOMMUNICATION CORPORATION BRANCH OF MILITARY INDUSTRIAL - TELECOMMUNICATIONS GROUP",
+    "taxCode": "Tax code: 0100109106-011 – Hanoi Tax Department",
+    "address": "No. 01 Giang Van Minh, Kim Ma ward, Ba Dinh district, Hanoi city",
+    "contact": "18008000 (branch 6)",
+    "contactBtn": "Send the contact"
+  },
+  "copyRight": "Vehicle Management and Monitoring System - Managing agency: Military Industry and Telecommunications Group. License number: 144/GP-BC issued by the Ministry of Information and Communications on April 18, 2007"
+}

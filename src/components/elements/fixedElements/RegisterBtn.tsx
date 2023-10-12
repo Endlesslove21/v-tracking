@@ -1,10 +1,13 @@
 import { Box, Center, Image, useDisclosure } from "@chakra-ui/react";
 import CustomButton from "../button";
-import RegisterModal from "../modal/RegisterModal";
+import { useTranslation } from "react-i18next";
+
 type Props = {
   onOpenRegisterModal: () => void;
 };
 const RegisterBtn = ({ onOpenRegisterModal }: Props) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <Box
@@ -16,7 +19,7 @@ const RegisterBtn = ({ onOpenRegisterModal }: Props) => {
         zIndex={1}
       >
         <CustomButton onClick={onOpenRegisterModal} p={"1px 10px"}>
-          Đăng ký tư vấn
+          {t("register")}
         </CustomButton>
 
         <Center mt={3}>

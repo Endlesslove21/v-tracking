@@ -4,20 +4,21 @@ import HeadingTitle from "@/components/elements/heading";
 import { Box, Flex, Grid, Image, Text } from "@chakra-ui/react";
 
 import TargetUserBox from "./TargetUserBox";
+import { useTranslation } from "react-i18next";
 
 const TargetUsers = () => {
+  const { t } = useTranslation();
   return (
     <Box py={"70px"}>
       <Wrapper flexDir={"column"}>
         <Box mb={"40px"}>
           <HeadingTitle
-            title="ĐỐI TƯỢNG SỬ DỤNG DỊCH VỤ"
+            title={t(`targetUsers.headingTitle`)}
             px={{ base: "15px", sm: 0 }}
           />
           <Text m={"20px"} textAlign={"center"}>
-            Giám sát hành trình GPS ngày càng được sử dụng rộng rãi.
-            <br /> V-Tracking là sản phẩm giúp giám sát và quản lý hành trình xe
-            hiện đại và tiện lợi nhất. Phù hợp với:
+            {t("targetUsers.subTitle1")}
+            <br /> {t("targetUsers.subTitle2")}
           </Text>
         </Box>
 

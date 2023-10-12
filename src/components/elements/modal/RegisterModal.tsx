@@ -4,6 +4,7 @@ import {
   Center,
   Flex,
   FormControl,
+  FormErrorMessage,
   FormLabel,
   Input,
   Modal,
@@ -16,10 +17,13 @@ import {
   Textarea,
   useToast,
 } from "@chakra-ui/react";
-
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm, FormProvider, Controller } from "react-hook-form";
 import ToastContent from "../toast/ToastContent";
+import PhoneNumberField from "../input/PhoneNumberField";
+import EmailField from "../input/EmailField";
+import ReCAPCHA from "../capcha/ReCAPCHA";
+import { useTranslation } from "react-i18next";
 type Props = {
   isOpen: boolean;
   onClose: () => void;
@@ -35,8 +39,12 @@ interface RegisterFormData {
 const RegisterModal = ({ isOpen, onClose }: Props) => {
   const methods = useForm<RegisterFormData>();
   const toast = useToast();
-  const { register, handleSubmit } = methods;
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = methods;
+  const { t } = useTranslation();
   const onSubmitRegisterForm = (value: RegisterFormData) => {
     toast({
       position: "top-right",
@@ -59,21 +67,20 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
           status: "error",
           render: () => <ToastContent content={error.phoneNumber.message} />,
         });
-        break;
+
       case !!error.email:
         toast({
           position: "top-right",
           status: "error",
           render: () => <ToastContent content={error.email.message} />,
         });
-        break;
+
       case !!error.capchaToken:
         toast({
           position: "top-right",
           status: "error",
           render: () => <ToastContent content={error.capchaToken.message} />,
         });
-        break;
 
       default:
         break;
@@ -86,7 +93,7 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
       <ModalContent mx={{ base: 3, sm: 0 }}>
         <ModalHeader>
           <Box as={"h2"} className="modal-heading-text">
-            Đăng ký nhận tư vấn miễn phí
+            {t("registerModal.title")}
           </Box>
         </ModalHeader>
         <ModalCloseButton
@@ -103,58 +110,29 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
               )}
             >
               <Flex flexDir={{ base: "column", sm: "row" }} gap={3}>
-                <FormControl>
+                <FormControl isInvalid={!!errors.phoneNumber}>
                   <FormLabel>
-                    Điện thoại{" "}
+                    {t("registerModal.phoneNumber")}{" "}
                     <Text as={"span"} color={"#f00"}>
                       (*)
                     </Text>
                   </FormLabel>
-                  <Input
-                    size={"sm"}
-                    variant={"solid"}
-                    placeholder="Nhập số điện thoại"
-                    type="tel"
-                    {...register("phoneNumber", {
-                      required: {
-                        value: true,
-                        message:
-                          "Bạn hãy nhập số điện thoại để chúng tôi có thể liên hệ tư vấn!",
-                      },
-                      onChange: (e) => {
-                        const newValue = e.target.value.replace(/\s/g, "");
-                        e.target.value = newValue;
-                      },
-                      pattern: {
-                        value: /^(0|\+84|84)?[1-9]\d{8,9}$/,
-                        message: "Số điện thoại bạn nhập không hợp lệ",
-                      },
-                    })}
+                  <PhoneNumberField
+                    errorText={t("registerModal.phoneNumberErrorText")}
+                    size={"md"}
                   />
                 </FormControl>
-                <FormControl>
-                  <FormLabel>Địa chỉ email</FormLabel>
-                  <Input
-                    size={"sm"}
-                    variant={"solid"}
-                    placeholder="Nhập email"
-                    type="text"
-                    {...register("email", {
-                      pattern: {
-                        value:
-                          /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                        message: "Email bạn nhập không hợp lệ",
-                      },
-                    })}
-                  />
+                <FormControl isInvalid={!!errors.email}>
+                  <FormLabel>{t("registerModal.email")}</FormLabel>
+                  <EmailField size={"md"} />
                 </FormControl>
               </Flex>
 
               <Flex mt={5}>
                 <FormControl>
-                  <FormLabel>Nội dung liên hệ</FormLabel>
+                  <FormLabel>{t("registerModal.content")}</FormLabel>
                   <Textarea
-                    placeholder="Nhập nội dung"
+                    placeholder={t("registerModal.contentPlaceholder")}
                     _placeholder={{
                       fontSize: "14px",
                     }}
@@ -169,33 +147,17 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
                 </FormControl>
               </Flex>
 
-              <Flex mt={5}>
-                <FormControl>
-                  <Flex
-                    w={"100%"}
-                    flexDir={{ base: "column", sm: "row" }}
-                    gap={3}
-                  >
-                    <Controller
-                      name="capchaToken"
-                      control={methods.control}
-                      rules={{ required: "Vui lòng nhập xác nhận capcha" }}
-                      render={({ field }) => (
-                        <ReCAPTCHA
-                          {...field}
-                          sitekey={import.meta.env.VITE_RECAPCHA_SITE_KEY}
-                          onChange={(value) => {
-                            field.onChange(value);
-                          }}
-                        />
-                      )}
-                    />
-                  </Flex>
-                </FormControl>
-              </Flex>
+              <FormControl isInvalid={!!errors.capchaToken} mt={5}>
+                <ReCAPCHA />
+                {errors.capchaToken && (
+                  <FormErrorMessage>
+                    {errors.capchaToken.message}
+                  </FormErrorMessage>
+                )}
+              </FormControl>
               <Center mt={5}>
                 <CustomButton type="submit" py={2} px={6}>
-                  Gửi liên hệ
+                  {t("registerModal.submitBtnText")}
                 </CustomButton>
               </Center>
             </form>

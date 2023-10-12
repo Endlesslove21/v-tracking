@@ -1,22 +1,22 @@
 export const NAV_MENU_DATA = [
   {
     id: "tinh-nang",
-    title: "Tính năng",
+    title: "navMenu.features",
   },
   {
     id: "mo-hinh",
-    title: "Mô hình",
+    title: "navMenu.model",
   },
   {
     id: "doi-tuong-su-dung",
-    title: "Đối tượng sử dụng",
+    title: "navMenu.users",
   },
   {
     id: "phi-dich-vu",
-    title: "Phí dịch vụ",
+    title: "navMenu.serviceCharge",
   },
   {
     id: "dai-ly",
-    title: "Đại lý",
+    title: "navMenu.agents",
   },
 ];
