@@ -29,7 +29,7 @@ const languages: Language[] = [
 const LanguageSelection = ({ textStyle, ...BoxProps }: Props) => {
   const [isDisplay, setIsDisplay] = useState<boolean>(false);
   const [language, setLanguage] = useState<Language>(languages[0]);
-  const { i18n, t } = useTranslation();
+  const { i18n } = useTranslation();
 
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);

@@ -6,7 +6,6 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
-  Input,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -17,8 +16,7 @@ import {
   Textarea,
   useToast,
 } from "@chakra-ui/react";
-import ReCAPTCHA from "react-google-recaptcha";
-import { useForm, FormProvider, Controller } from "react-hook-form";
+import { useForm, FormProvider } from "react-hook-form";
 import ToastContent from "../toast/ToastContent";
 import PhoneNumberField from "../input/PhoneNumberField";
 import EmailField from "../input/EmailField";
@@ -67,21 +65,21 @@ const RegisterModal = ({ isOpen, onClose }: Props) => {
           status: "error",
           render: () => <ToastContent content={error.phoneNumber.message} />,
         });
-
+        break;
       case !!error.email:
         toast({
           position: "top-right",
           status: "error",
           render: () => <ToastContent content={error.email.message} />,
         });
-
+        break;
       case !!error.capchaToken:
         toast({
           position: "top-right",
           status: "error",
           render: () => <ToastContent content={error.capchaToken.message} />,
         });
-
+        break;
       default:
         break;
     }

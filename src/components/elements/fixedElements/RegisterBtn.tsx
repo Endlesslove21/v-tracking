@@ -1,4 +1,4 @@
-import { Box, Center, Image, useDisclosure } from "@chakra-ui/react";
+import { Box, Center, Image } from "@chakra-ui/react";
 import CustomButton from "../button";
 import { useTranslation } from "react-i18next";
 

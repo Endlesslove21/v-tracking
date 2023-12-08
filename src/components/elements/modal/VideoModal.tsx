@@ -1,7 +1,6 @@
 import {
   Box,
   Modal,
-  ModalBody,
   ModalCloseButton,
   ModalContent,
   ModalOverlay,

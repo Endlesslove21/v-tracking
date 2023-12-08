@@ -12,8 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { BsFillBellFill } from "react-icons/bs";
 import { useState } from "react";
-import { Controller, FormProvider, useForm } from "react-hook-form";
-import ReCAPTCHA from "react-google-recaptcha";
+import { FormProvider, useForm } from "react-hook-form";
 import CustomButton from "@/components/elements/button";
 import { IoArrowBackOutline } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
@@ -31,7 +30,6 @@ const ResetPassForm = () => {
   const methods = useForm<ResetPass>();
   const {
     handleSubmit,
-    control,
     formState: { errors },
   } = methods;
   const [option, setOption] = useState<string>("email");
@@ -39,7 +37,7 @@ const ResetPassForm = () => {
   const onSubmitResetPass = (value: any) => {
     console.log(value);
   };
-  const onErrorResetPass = (error: any) => {};
+  const onErrorResetPass = () => {};
   return (
     <>
       <Center bgColor={"#f5f5f5"} w={"100%"} height={"calc(100vh - 200px)"}>

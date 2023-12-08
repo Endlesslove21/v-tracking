@@ -3,21 +3,11 @@ import CustomButton from "@/components/elements/button";
 import HeadingTitle from "@/components/elements/heading";
 import RegisterModal from "@/components/elements/modal/RegisterModal";
 import VideoModal from "@/components/elements/modal/VideoModal";
-import {
-  Box,
-  Flex,
-  Image,
-  Link,
-  Text,
-  useDisclosure,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { Box, Flex, Image, Link, Text, useDisclosure } from "@chakra-ui/react";
 import "./animationDisplay.css";
 import { useTranslation } from "react-i18next";
 
 const Slider = () => {
-  const [isSmallerThan995] = useMediaQuery("max-width(995px)");
-
   const {
     isOpen: isVideoModalOpen,
     onClose: onCloseVideoModalOpen,

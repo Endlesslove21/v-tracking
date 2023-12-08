@@ -1,6 +1,4 @@
-type Props = {};
-
-const RegisterAlert = (props: Props) => {
+const RegisterAlert = () => {
   return <div>RegisterAlert</div>;
 };
 

@@ -1,4 +1,4 @@
-import { Flex, FormControl, FormErrorMessage } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { Controller, useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";

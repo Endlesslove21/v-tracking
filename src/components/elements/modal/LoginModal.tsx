@@ -38,7 +38,7 @@ const LoginModal = ({ isOpen, onClose }: Props) => {
   } = useForm<LoginForm>();
   const toast = useToast();
   const { t } = useTranslation();
-  const onSubmitLoginForm = (value: LoginForm) => {};
+  const onSubmitLoginForm = () => {};
   const onSubmitLoginFormError = (error: any) => {
     switch (true) {
       case !!error.user:
