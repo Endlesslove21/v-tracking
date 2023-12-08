@@ -7,10 +7,9 @@ type Props = PropsWithChildren<BoxProps> & {
   height: string;
 };
 
-const DropdownMenu = ({ isActive, height, children, ...BoxProp }: Props) => {
+const DropdownMenu = ({ isActive, height, children }: Props) => {
   return (
     <NavList
-      {...BoxProp}
       listStyleType={"none"}
       pos={"absolute"}
       left={0}
